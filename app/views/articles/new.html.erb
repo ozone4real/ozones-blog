@@ -1,4 +1,12 @@
 <%= form_with scope: :article, url: articles_path, local: true do |form| %>
+<% if @article.errors.any? %>
+<h3>Validation errors</h3>
+<ul>
+<% @article.errors.full_messages.each do |error| %>
+<li> <%= error %> </li>
+<% end %>
+</ul>
+<% end %>
 <h1> Create an article </h1>
 <div>
 <%= form.label :title %> <br/>
