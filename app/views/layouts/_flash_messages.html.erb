@@ -1,0 +1,11 @@
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(Array) %>
+   <ul>
+    <% msg.each do |m| %>
+      <li><%= m %></li>
+    <% end %>
+   </ul>
+  <% else %>
+  <%= msg %>
+  <% end %>
+<% end %>
