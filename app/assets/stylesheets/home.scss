@@ -1,0 +1,34 @@
+.site-banner {
+  margin-top: 10px;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
+    url('Blogging.png') no-repeat 0% 70%;
+  color: white;
+  justify-content: space-between;
+  height: 500px;
+  background-size: 100%;
+  padding: 20px;
+}
+
+.site-banner .banner-text {
+  font: 64px 'Great Vibes';
+  margin: 70px;
+}
+
+.site-banner .sign-up-button {
+  margin-top: 15%;
+  margin-right: 40px;
+  font-size: 30px;
+}
+
+.sign-up-button span {
+  border: 1px solid white;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sign-up-button span:hover {
+  color: black;
+  background: white;
+  border: none;
+}

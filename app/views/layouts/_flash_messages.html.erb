@@ -1,11 +1,8 @@
-<% flash.each do |name, msg| %>
-  <% if msg.is_a?(Array) %>
-   <ul>
-    <% msg.each do |m| %>
-      <li><%= m %></li>
-    <% end %>
-   </ul>
-  <% else %>
-  <%= msg %>
-  <% end %>
+<% unless flash.empty? %>
+    <script type="text/javascript">
+        <% flash.each do |f| %>
+        <% type = f[0].to_s %>
+        toastr['<%= type %>']('<%= f[1] %>');
+        <% end %>
+    </script>
 <% end %>

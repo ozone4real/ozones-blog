@@ -1,0 +1,52 @@
+.header {
+  height: 63px;
+  background: #000000;
+  color: white;
+  box-shadow: 3px 3px 7px #888888;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+.header .site-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.search-container {
+  float: right;
+}
+
+.search-container input {
+  padding: 3px 10px 3px 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 32px;
+}
+
+.search-container button {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 32px;
+}
+
+.header .dropdown-toggle::after {
+  content: none;
+}
+
+.header .dropdown-toggle {
+  float: right;
+}
+
+.dropdown-menu.show {
+  left: -80px !important;
+}
+.dropdown-menu a {
+  color: black;
+}
+
+// header .site-title {
+//   font-size: 24px;
+// }

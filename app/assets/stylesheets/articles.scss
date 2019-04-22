@@ -1,3 +1,61 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-container {
+  width: 90%;
+  margin: auto;
+}
+
+#article_title {
+  width: 100%;
+  text-transform: capitalize;
+  border-width: 0 0 1px 0;
+  outline: none;
+  font-size: 25px;
+  padding: 10px 20px 10px 20px;
+}
+
+.form-control.ql-container {
+  height: 300px;
+  border-width: 0 !important;
+  font-size: 20px;
+}
+
+.form-container .btn-primary {
+  background-color: black;
+  border-color: black;
+  outline: none;
+}
+
+.form-container .btn-primary:hover {
+  color: black;
+  background-color: white;
+  border-color: black;
+}
+
+.form-container .btn-primary:active {
+  background-color: black !important;
+  border-color: black !important;
+}
+
+.article-page {
+  margin: 70px 0 70px 0;
+}
+
+.article-page .article-title {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: Poppins;
+  text-transform: capitalize;
+  font-family: Poppins;
+}
+
+.article-image-container {
+  height: 500px;
+}
+
+.article-body {
+  font-size: 18px;
+  line-height: 32px;
+}

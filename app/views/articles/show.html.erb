@@ -1,5 +1,9 @@
-<h2>Showing selected article</h1>
-<p>Article Title: <%= @article.title %></p>
-<p>Description: <%= @article.description %></p>
-<p>Time created: <%= @article.created_at %></p>
-<button><%= link_to 'Edit', edit_article_path %></button> <br/>
+<div class="article-page">
+<div class="article-title mb-4 text-center title"> <h1><%= @article.title %></h1> </div>
+<div class="row justify-content-center"> <div class="mx-2 text-secondary" ><%= @article.created_at.to_s.split(" ")[0] %></div> <div class="mx-2 text-primary">By Ezenwa</div></div>
+<% unless @article.image_url.to_s.empty? %>
+<div class="article-image-container my-3 mx-auto" style="background: url(<%= @article.image_url.to_s %>) no-repeat center center; background-size: contain;">.</div>
+<% end %>
+<div class="article-body"><%= sanitize @article.description %></div>
+<%= content_tag :h2, 'Thanks for reading', id: "ozone" unless @article.image_url.to_s.empty?  %>
+</div>

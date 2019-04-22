@@ -4,13 +4,19 @@
     <title>AlphaBlog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://cdn.quilljs.com/1.1.9/quill.js"></script>
+    <link href="https://cdn.quilljs.com/1.1.9/quill.snow.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
   </head>
 
   <body>
+  <%= render 'layouts/nav_bar' %>
     <%= render 'layouts/flash_messages' %>
+    <div class="container">
     <%= yield %>
+    </div>
+  <%= render 'layouts/footer' %>
   </body>
 </html>
