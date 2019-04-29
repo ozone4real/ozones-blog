@@ -1,8 +1,40 @@
 <%# <%= link_to 'All articles', articles_path %>
 <%# <%= link_to "About", about_path %>
+<% if !logged_in? %>
 <div class="jumbotron site-banner row">
 <div class="banner-text col-3">All the buzz, all the gist</div>
 <div class="col-3 sign-up-button">
-<span>Get started</span>
+<span class="signup-modal-trigger">Get started</span>
+</div>
+</div>
+<% end %>
+<div class="articles-section">
+<div class="selected-articles-sec row my-4">
+<div class="top-article col-9 pr-5">
+<h2 class="mb-4">Top Article</h2>
+<%= render 'layouts/article_card', article: @random_article, truncValue: {article_body: 400, article_title: 60} %>
+</div>
+<div class="border my-5">
+</div>
+<div class="popular-articles col-2 py-5 pl-5 mr-0 pr-0">
+<h5 class="mb-3">Popular articles</h5>
+<% @articles.sample(5).each do |article| %>
+<%= link_to article_path(article.id) do %>
+<hr>
+<div class="mb-3">
+<h6><%= article.title%></h6>
+<small>by <span class="text-primary"><%= article.user.username %></span></small>
+</div>
+<% end %>
+<% end %>
+</div>
+</div>
+<hr>
+<h2>Featured Articles</h2>
+<hr>
+<div class="featured-articles my-4">
+<% @articles.each do |article| %>
+<%= render 'layouts/article_card', article: article, truncValue: {article_body: 120, article_title: 40} %>
+<% end %>
 </div>
 </div>

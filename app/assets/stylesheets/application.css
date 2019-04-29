@@ -15,3 +15,15 @@
  *= require quill.snow
  *= require toastr
  */
+
+body {
+  background: #ffffff;
+}
+
+.btn-dark {
+  background: black;
+}
+
+#toast-container > div {
+  opacity: 1 !important;
+}

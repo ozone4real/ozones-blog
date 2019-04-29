@@ -1,0 +1,11 @@
+<div class='article-card'>
+<%= link_to article_path(article.id) do %>
+<div class='article-card-image-container mb-3' ><%= image_tag article.image_url.to_s %></div>
+<div class='article-card-title mb-2 text-dark'> <%= article.title.truncate(truncValue[:article_title]) %> </div>
+<div class='article-card-body mb-2'><%= sanitize article.article_body.truncate(truncValue[:article_body]) %> </div>
+<div class='extra-info row justify-content-flex-start'>
+<div class="pl-3 pr-1" > by <span class="text-primary"><%= article.user.username %></span></div>
+<div class="pl-3 pr-1 text-secondary"> <%= "#{article.time_to_read} read" %></div>
+</div>
+<% end %>
+</div>

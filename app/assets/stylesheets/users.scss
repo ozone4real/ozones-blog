@@ -1,0 +1,92 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.profile-container {
+  margin: 90px 0 90px 0;
+}
+
+.profile-page img {
+  margin: auto !important;
+  height: 150px;
+  width: 150px;
+}
+
+.profile-page .nav {
+  justify-content: space-around;
+  margin: auto;
+  font-size: large;
+}
+
+.nav-tabs {
+  background: #e6e6e6;
+  opacity: 0.7;
+  padding-top: 20px;
+  border: 1px solid #d8d8d8;
+  border-bottom: 0;
+  color: black;
+}
+
+.nav-tabs a {
+  color: unset;
+}
+
+.nav-tabs .active,
+.nav-tabs a:hover {
+  background-color: white;
+}
+
+.tab-item {
+  display: none;
+}
+
+.user-info {
+  padding: 10px;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+
+label {
+  cursor: pointer;
+}
+
+.profile-page input[type='file'] {
+  display: none;
+}
+
+.update-buttons {
+  display: none;
+}
+
+.edit-input {
+  display: none;
+}
+
+#profile-details input,
+#profile-details textarea {
+  border: none;
+  padding: 10px;
+  outline: none;
+  color: gray;
+}
+
+.user-article-cards {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #d8d8d8;
+  margin-bottom: 15px;
+}
+
+.user-article-cards .user-article-title {
+  font-weight: bolder;
+}
+
+#profile-details textarea {
+  width: 50%;
+}
+// .nav-tabs li {
+//   width: 32%;
+//   text-align: center;
+//   padding: 20px;
+// }

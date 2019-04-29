@@ -1,7 +1,7 @@
 .site-banner {
   margin-top: 10px;
   background: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
-    url('Blogging.png') no-repeat 0% 70%;
+    asset-url('Blogging.png') no-repeat 0% 70%;
   color: white;
   justify-content: space-between;
   height: 500px;
@@ -31,4 +31,120 @@
   color: black;
   background: white;
   border: none;
+}
+
+.modal {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  overflow: auto;
+  display: none;
+}
+
+.modal-content {
+  display: none;
+}
+
+.login-form,
+.signup-form {
+  width: 30%;
+  margin: 15% auto;
+  background: white;
+  padding: 20px 0 20px 0;
+  border-radius: 10px;
+}
+
+.login-form div,
+.signup-form div {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.login-form input,
+.signup-form input,
+.login-form button,
+.signup-form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-width: 0 0 1px 0;
+  border-color: black;
+  outline: none;
+}
+
+.login-form button,
+.signup-form button {
+  color: white;
+  background: black;
+  border-color: black;
+  border-radius: 10px;
+}
+
+.articles-section {
+  margin: 70px 0 70px 0;
+}
+
+.articles-section a {
+  text-decoration: none;
+  color: #585858;
+}
+
+.articles-section a:hover {
+  color: black;
+}
+
+.articles-section img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.top-article .article-card-title {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.featured-articles {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  align-items: baseline;
+}
+
+.featured-articles .article-card:hover {
+  text-decoration: underline;
+}
+
+.popular-articles a:hover {
+  text-decoration: underline;
+}
+
+.featured-articles img {
+  height: 150px;
+}
+
+.featured-articles .article-card {
+  width: 23%;
+  margin: 10px;
+  margin-bottom: 60px;
+}
+
+.featured-articles .article-card-title {
+  font-size: 17px;
+  font-weight: bolder;
+}
+
+.featured-articles .article-card-body {
+  font-size: 14px;
+}
+
+.featured-articles .extra-info {
+  font-size: 13px;
+}
+
+.top-article img {
+  height: 400px;
 }

@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def home
-    "Heyyyyyyy"
+    @user = User.new
+    @articles = Article.all
+    @random_article = @articles.sample
   end
 
   def about

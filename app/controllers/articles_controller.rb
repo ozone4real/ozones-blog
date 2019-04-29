@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i(show edit)
+  before_action :require_user, only: [:new]
 
   def new
     @article = Article.new
@@ -11,14 +12,16 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.destroy(params[:id])
-    flash[:error] = "Article was successfully deleted"
+    flash.now[:error] = "Article was successfully deleted"
     redirect_to articles_path
   end
 
   def create
-    @article = Article.new(article_params)
+    article_data = calculate_time_to_read(article_params)
+    @article = Article.new(article_data)
+    @article.user = current_user
     if @article.save
-      flash[:success] = "Article was successfully created"
+      flash.now[:success] = "Article was successfully created"
       redirect_to @article
     else
       render "new"
@@ -26,9 +29,10 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.update(params[:id], article_params)
+    article_data = calculate_time_to_read(article_params)
+    @article = Article.update(params[:id], article_data)
     if @article.save
-      flash[:success] = "Article was successfully updated"
+      flash.now[:success] = "Article was successfully updated"
       redirect_to @article
     else
       render "edit"
@@ -45,7 +49,13 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def calculate_time_to_read(params)
+    article_words = params[:article_body].split(" ").length
+    params[:time_to_read] = "#{(article_words.to_f / 200).ceil} min"
+    params
+  end
+
   def article_params
-    params.require(:article).permit(:title, :description, :image_url)
+    params.require(:article).permit(:title, :article_body, :image_url)
   end
 end

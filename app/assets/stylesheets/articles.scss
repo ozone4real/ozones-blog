@@ -40,7 +40,8 @@
 }
 
 .article-page {
-  margin: 70px 0 70px 0;
+  margin: 70px auto 70px auto;
+  width: 90%;
 }
 
 .article-page .article-title {
@@ -51,11 +52,12 @@
   font-family: Poppins;
 }
 
-.article-image-container {
+.article-page .article-image-container {
   height: 500px;
+  margin: 40px auto 80px auto;
 }
 
-.article-body {
+.article-page .article-body {
   font-size: 18px;
   line-height: 32px;
 }

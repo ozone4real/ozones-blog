@@ -1,0 +1,75 @@
+<div class="profile-page">
+<div class="profile-container row">
+<div class="profile-img-container col-3">
+<label for="profile-img-upload" >
+ <%= gravatar_for @user %>
+</label>
+<input type="file" id="profile-img-upload" accept="image/*">
+<p class="mt-3 text-primary"><h3><%= "@#{@user.username}" %></h3></p>
+<p><%= "Joined #{Date.strptime(@user.created_at.to_s)}" %></p>
+<button class="btn-primary btn-sm profile-edit-btn">Edit your profile</button>
+</div>
+<div class="col-9">
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="javascript:void(0)" data-content="profile-details" >My Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-content="my-articles" href="javascript:void(0)">My Articles</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-content="followers" href="javascript:void(0)">Followers</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" data-content="following" >Following</a>
+  </li>
+</ul>
+<div class="profile-tabs mt-4">
+<div class="tab-item" id="profile-details">
+<div class="user-info row mx-0">
+<div id="user-fullname" class="col-6">
+<span class="mr-4 text-secondary"><b>Name</b> </span>
+ <span data-field="fullname" class="text-primary"><%= @user.full_name || 'Update your name' %></span>
+<input type='text' name="fullname" class="edit-input fullname"  value= "<%= @user.full_name || 'Update your name' %>" required />
+ </div>
+<div id="user-email" class="col-6" data-detail="email">
+<span class="mr-4 text-secondary"><b>Email</b> </span>
+<span class="text-primary"><%= @user.email %></span></div>
+</div>
+<div class="user-info pl-4" id="user-bio">
+<span class="mr-4 text-secondary"><b>Bio</b> </span>
+<div data-field="bio"><%= "#{@user.bio}" %> </div>
+<div class="edit-input">
+<textarea name="bio" class="bio" required> <%= "#{@user.bio}" %> </textarea>
+</div>
+</div>
+<div class="update-buttons">
+<button class="save-btn btn btn-primary"> Save </button> <button class="cancel-btn btn btn-light">Cancel</button>
+</div>
+</div>
+<div class="tab-item" id="followers" >
+<h1>My followers</h1>
+</div>
+<div class="tab-item" id="following">
+<h1>My following</h2>
+</div>
+<div class="tab-item" id="my-articles">
+<% @user.articles.each do |article| %>
+<div class="user-article-cards">
+<div class="user-article-title">
+<h5><%= article.title %></h5>
+</div>
+<div class="user-article-body">
+<%= sanitize article.article_body.truncate(100) %>
+</div>
+<div class="user-article-buttons">
+<i class="far fa-edit"></i> <i class="fa fa-trash" aria-hidden="true"></i>
+</div>
+</div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

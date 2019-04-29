@@ -20,7 +20,6 @@
 //= require quill.min
 //= require quill.global
 //= require toastr
-//= require moment
 
 $(document).ready(function() {
   toastr.options = {

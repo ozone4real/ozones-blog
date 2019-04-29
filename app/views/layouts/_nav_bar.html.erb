@@ -8,16 +8,21 @@
   <button type="submit"><i class="fa fa-search"></i></button>
   </div>
   </div>
-<span class="nav-item dropdown col-2">
+  <% if logged_in? %>
+  <span class="nav-item dropdown col-2">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-2x"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Login</a>
-          <a class="dropdown-item" href="#">Get started</a>
-          <%= link_to 'Articles', articles_path, class: "dropdown-item" %>
+          <div class="text-center text-success"><%= current_user.username %></div>
+          <%= link_to 'My Profile', profile_path, class: "dropdown-item" %>
+          <%= link_to 'Create Article', new_article_path, class: "dropdown-item" %>
+          <%= link_to 'Log out', logout_path, method: :delete, class: "dropdown-item" %>
         </div>
       </span>
+  <% else %>
+  <a href="javascript:void(0)" class="login-modal-trigger"> Login </a>
+  <% end %>
  </div>
  </div>
  </nav>
