@@ -7,6 +7,34 @@
   margin: auto;
 }
 
+.reactions-section a {
+  text-decoration: unset;
+  color: unset;
+}
+
+.reactions-section a:hover {
+  text-decoration: unset;
+}
+
+.create-article-page input[type='file'] {
+  display: none;
+}
+
+#close-icon {
+  float: right;
+  display: none;
+  cursor: pointer;
+}
+
+#close-icon:hover {
+  color: red;
+}
+
+.create-article-page .img-preview {
+  height: 400px;
+  display: none;
+}
+
 #article_title {
   width: 100%;
   text-transform: capitalize;
@@ -41,7 +69,6 @@
 
 .article-page {
   margin: 70px auto 70px auto;
-  width: 90%;
 }
 
 .article-page .article-title {
@@ -60,4 +87,6 @@
 .article-page .article-body {
   font-size: 18px;
   line-height: 32px;
+  width: 80%;
+  margin: auto;
 }

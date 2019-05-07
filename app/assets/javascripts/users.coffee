@@ -73,4 +73,7 @@ $(document).on 'turbolinks:load', ->
         .fail(({responseJSON, status}) -> 
           for key, value of responseJSON
             $("#signup-form input[name= #{key}]").next().html("#{key} #{value}")
-        )  
+        )
+
+# $(window).scroll ->
+#   console.log $('.nav-tabs').position()

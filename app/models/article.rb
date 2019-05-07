@@ -1,6 +1,15 @@
 class Article < ApplicationRecord
   belongs_to :user
+  has_many :likes
   mount_uploader :image_url, ImageUploader
-  validates :title, presence: true, length: { minimum: 3, maximum: 50 }
-  validates :article_body, presence: true, length: { minimum: 10, maximum: 8000 }
+  after_create :generate_unique_slug
+  validates :title, presence: true, length: { minimum: 3, maximum: 70 }
+  validates :article_body, presence: true, length: { minimum: 10, maximum: 10000 }
+
+  private
+
+  def generate_unique_slug
+    slug = "#{title.tr ' ', '-'}-#{id}".downcase
+    update(slug: slug)
+  end
 end

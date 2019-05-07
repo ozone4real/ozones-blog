@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   post 'login', to: 'users#login_user'
   patch 'profile/edit_profile', to: 'users#edit_profile'
   patch 'profile/update_profile_img', to: 'users#update_profile_img'
+  post 'articles/:article_id/likes', to: 'articles#like_article'
+  delete 'articles/:article_id/likes', to: 'articles#dislike_article'
   delete 'logout', to: 'users#logout_user'
 
-  resources :articles
+  resources :articles, param: :slug
 end

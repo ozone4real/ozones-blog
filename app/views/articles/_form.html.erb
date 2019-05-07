@@ -4,7 +4,10 @@
 <small class="text-danger"><%= "Title #{@article.errors[:title][0]}" if @article.errors[:title].any? %> </small>
 </div>
 <div class="form-group mb-4" >
-<%= form.file_field :image_url, image_preview: true, 'up-data': '.image-preview'.to_json, accept: "image/*" %>
+<label for='upload-cover-img'><i class="fa fa-upload" aria-hidden="true"></i> <span>Upload Image (optional)</span></label> <i class="fa fa-times fa-2x" id="close-icon" aria-hidden="true" style="display: <%= 'inline' unless @article.image_url.blank? %>"></i>
+<%= form.file_field :image_url, 'up-data': '.image-preview'.to_json, accept: "image/*", id: 'upload-cover-img' %>
+</div>
+<div class="img-preview m-3 px-4" style="background: url(<%= @article.image_url.to_s %>) no-repeat center center; background-size: contain; display: <%= 'block' unless @article.image_url.blank? %>">
 </div>
 <div class="form-group mb-4" >
 <%= form.text_area :article_body, class: 'quill_container', placeholder: 'Write your story....',  required: true %>

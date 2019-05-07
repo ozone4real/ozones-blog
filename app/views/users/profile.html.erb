@@ -24,7 +24,7 @@
     <a class="nav-link" href="javascript:void(0)" data-content="following" >Following</a>
   </li>
 </ul>
-<div class="profile-tabs mt-4">
+<div class="profile-tabs mt-4 mx-2">
 <div class="tab-item" id="profile-details">
 <div class="user-info row mx-0">
 <div id="user-fullname" class="col-6">
@@ -56,14 +56,21 @@
 <div class="tab-item" id="my-articles">
 <% @user.articles.each do |article| %>
 <div class="user-article-cards">
+<%= link_to article_path(article.slug) do %>
 <div class="user-article-title">
 <h5><%= article.title %></h5>
 </div>
 <div class="user-article-body">
-<%= sanitize article.article_body.truncate(100) %>
+<%= sanitize article.article_body.truncate(200) %>
 </div>
-<div class="user-article-buttons">
-<i class="far fa-edit"></i> <i class="fa fa-trash" aria-hidden="true"></i>
+<% end %>
+<div class="row text-secondary">
+<div class="additional-details col-10">
+<span><small><%= Date.strptime(article.created_at.to_s) %> </small></span>
+</div>
+<div class="user-article-buttons col-2">
+<%= link_to '<i class="far fa-edit mr-2 text-secondary"></i>'.html_safe , edit_article_path(article.slug) %>  <%= link_to '<i class="fa fa-trash text-danger" aria-hidden="true"></i>'.html_safe, article_path(article.id), method: 'delete' %>
+</div>
 </div>
 </div>
 <% end %>

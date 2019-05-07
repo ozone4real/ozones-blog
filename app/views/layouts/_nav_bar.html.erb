@@ -1,5 +1,5 @@
 <nav class="header pt-2">
-<div class="container" >
+<div class="nav-container" >
 <div class="row align-items-center">
 <div class="col-5"> <%= link_to '<span class="site-title">Ozone\'s blog</span>'.html_safe, root_path %> </div>
 <div class="col-5">
@@ -8,21 +8,25 @@
   <button type="submit"><i class="fa fa-search"></i></button>
   </div>
   </div>
-  <% if logged_in? %>
   <span class="nav-item dropdown col-2">
+  <% if logged_in? %>
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <% if current_user.image_url.present? %>
+          <%= image_tag(current_user.image_url.to_s, class: "profile-img-sm") %>
+          <% else %>
           <i class="fas fa-user-circle fa-2x"></i>
+        <% end %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <div class="text-center text-success"><%= current_user.username %></div>
+          <div class="text-center text-primary"><%= current_user.username %></div>
           <%= link_to 'My Profile', profile_path, class: "dropdown-item" %>
           <%= link_to 'Create Article', new_article_path, class: "dropdown-item" %>
           <%= link_to 'Log out', logout_path, method: :delete, class: "dropdown-item" %>
         </div>
-      </span>
   <% else %>
-  <a href="javascript:void(0)" class="login-modal-trigger"> Login </a>
+  <a href="javascript:void(0)" class="login-modal-trigger dropdown-toggle"> Login </a>
   <% end %>
+      </span>
  </div>
  </div>
  </nav>

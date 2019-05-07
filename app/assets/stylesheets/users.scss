@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .profile-container {
-  margin: 90px 0 90px 0;
+  margin: 90px 0 30px 0;
 }
 
 .profile-page img {
@@ -24,6 +24,11 @@
   border: 1px solid #d8d8d8;
   border-bottom: 0;
   color: black;
+}
+
+#my-articles {
+  max-height: 65vh;
+  overflow: auto;
 }
 
 .nav-tabs a {
@@ -76,14 +81,29 @@ label {
   border-radius: 10px;
   border: 1px solid #d8d8d8;
   margin-bottom: 15px;
+  box-shadow: 2px 5px 5px -2px #d8d8d8;
+}
+
+.user-article-cards a {
+  color: black;
 }
 
 .user-article-cards .user-article-title {
   font-weight: bolder;
 }
 
+.user-article-cards .user-article-body {
+  color: gray;
+  font-size: 15px;
+}
+
 #profile-details textarea {
   width: 50%;
+}
+
+.user-article-buttons .fa-edit:hover {
+  color: black;
+  box-shadow: 1px 1px 3px #d8d8d8;
 }
 // .nav-tabs li {
 //   width: 32%;

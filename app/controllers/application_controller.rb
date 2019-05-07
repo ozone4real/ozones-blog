@@ -7,14 +7,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def current_user
-    if session[:token]
-      user = JsonWebToken.decode(session[:token])
-      @current_user ||= User.find(user[:id])
-    end
+    @current_user ||= User.find(decoded_auth_token[:id]) if decoded_auth_token
   end
 
   def logged_in?
     !!current_user
+  end
+
+  def decoded_auth_token
+    @decoded_auth_token ||= JsonWebToken.decode(session[:token])
+  rescue
+    nil
   end
 
   def require_user

@@ -18,10 +18,23 @@
 
 body {
   background: #ffffff;
+  /* min-height: 100vh; */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  min-height: 80vh;
 }
 
 .btn-dark {
   background: black;
+}
+
+.profile-img-sm {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 
 #toast-container > div {

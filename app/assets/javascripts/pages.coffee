@@ -78,4 +78,9 @@ $(document).on 'turbolinks:load', ->
           #   $("#signup-form input[name= #{key}]").next().html("#{key} #{value}")
         )
 
+  $(window).scroll ->
+    if window.pageYOffset >= $('.header').scrollTop()
+      $('.header').css({"position": "fixed", 'top': '0', 'margin-bottom': '30px'})
+      $('.container').css('padding-top', '70px')
+
 

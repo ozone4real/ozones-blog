@@ -12,18 +12,18 @@
 <div class="selected-articles-sec row my-4">
 <div class="top-article col-9 pr-5">
 <h2 class="mb-4">Top Article</h2>
-<%= render 'layouts/article_card', article: @random_article, truncValue: {article_body: 400, article_title: 60} %>
+<%= render 'layouts/article_card', article: @top_articles[0], truncValue: {article_body: 400, article_title: 60} %>
 </div>
 <div class="border my-5">
 </div>
 <div class="popular-articles col-2 py-5 pl-5 mr-0 pr-0">
 <h5 class="mb-3">Popular articles</h5>
-<% @articles.sample(5).each do |article| %>
-<%= link_to article_path(article.id) do %>
+<% @most_liked_articles.take(5).each do |article| %>
+<%= link_to article_path(article.slug) do %>
 <hr>
 <div class="mb-3">
 <h6><%= article.title%></h6>
-<small>by <span class="text-primary"><%= article.user.username %></span></small>
+<small><span class="text-primary">@<%= article.user.username %></span></small>
 </div>
 <% end %>
 <% end %>

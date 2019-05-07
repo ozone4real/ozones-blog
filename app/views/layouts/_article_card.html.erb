@@ -1,11 +1,17 @@
 <div class='article-card'>
-<%= link_to article_path(article.id) do %>
-<div class='article-card-image-container mb-3' ><%= image_tag article.image_url.to_s %></div>
-<div class='article-card-title mb-2 text-dark'> <%= article.title.truncate(truncValue[:article_title]) %> </div>
-<div class='article-card-body mb-2'><%= sanitize article.article_body.truncate(truncValue[:article_body]) %> </div>
-<div class='extra-info row justify-content-flex-start'>
-<div class="pl-3 pr-1" > by <span class="text-primary"><%= article.user.username %></span></div>
-<div class="pl-3 pr-1 text-secondary"> <%= "#{article.time_to_read} read" %></div>
-</div>
+<%= link_to article_path(article.slug) do %>
+<div class='article-card-image-container mb-3' ><%= image_tag article.image_url.to_s, class: "article-img" %></div>
+<div class='article-card-title mb-1 text-dark'> <%= article.title.truncate(truncValue[:article_title]) %> </div>
+<div class='article-card-body'><%= sanitize article.article_body.truncate(truncValue[:article_body]) %> </div>
 <% end %>
+<div class="extra-details">
+<div class="profile-img pr-1"> <%= image_tag article.user.image_url.to_s, class: "profile-img-sm" %> </div>
+<div class='extra-info text-secondary'>
+<div class="pr-2 pl-1" ><span class="text-primary">@<%= article.user.username %></span></div>
+<div>
+<span class="pl-1 pr-1"><%= Date.strptime(article.created_at.to_s) %></span>. 
+<span> <%= "#{article.time_to_read} read" %></span>
+</div>
+</div>
+</div>
 </div>
