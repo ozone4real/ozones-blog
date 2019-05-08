@@ -34,6 +34,13 @@ $(document).on 'turbolinks:load', ->
 
     $('#signup-form').submit (e) ->
         e.preventDefault();
+        errors = false
+        $('#signup-form input').each ->
+           if not validationSchema[$(this).attr('name')].test($(this).val())
+            $(this).next().html(validationMessages[$(this).attr('name')])
+            errors = true
+
+        return if errors 
         data = 
           email: $('#signup-form input[name= email]').val(),
           password: $('#signup-form input[name= password]').val(),
@@ -71,9 +78,12 @@ $(document).on 'turbolinks:load', ->
           data: JSON.stringify(data),
           dataType: 'json'
         })
-        .done(({responseJSON, status}) -> window.location.replace('/') )
+        .done(({responseJSON, status}) ->
+          console.log(responseJSON)
+          window.location.replace('/') )
         .fail(({responseJSON, status}) -> 
           console.log(responseJSON)
+          $('#login-error-message').html(responseJSON.message)
           # for key, value of responseJSON
           #   $("#signup-form input[name= #{key}]").next().html("#{key} #{value}")
         )

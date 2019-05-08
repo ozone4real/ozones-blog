@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i(show edit update)
+  before_action :set_article_by_id, only: [:update]
   before_action :require_user, only: %i(new update edit like_article)
   before_action :require_same_user, only: %i(edit update destory)
 
@@ -8,6 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    p params
     unless @article.user == current_user
       @article.increment!(:number_of_reads)
     end
@@ -57,6 +59,10 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find_by(slug: params[:slug])
+  end
+
+  def set_article_by_id
+    @article = Article.find(params[:id])
   end
 
   def calculate_time_to_read(params)

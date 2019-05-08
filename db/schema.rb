@@ -10,23 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_164857) do
+ActiveRecord::Schema.define(version: 2019_05_08_102028) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
     t.string "image_url"
     t.string "title"
     t.text "article_body"
-    t.integer "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "time_to_read"
     t.string "slug"
-    t.integer "number_of_reads"
+    t.integer "number_of_reads", default: 0
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "article_id"
+    t.bigint "user_id"
+    t.bigint "article_id"
     t.index ["article_id"], name: "index_likes_on_article_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
@@ -43,4 +47,7 @@ ActiveRecord::Schema.define(version: 2019_05_06_164857) do
     t.string "full_name"
   end
 
+  add_foreign_key "articles", "users"
+  add_foreign_key "likes", "articles"
+  add_foreign_key "likes", "users"
 end
