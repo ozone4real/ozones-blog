@@ -11,11 +11,7 @@
   <span class="nav-item dropdown col-2">
   <% if logged_in? %>
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <% if current_user.image_url.present? %>
           <%= gravatar_for current_user, '-sm' %>
-          <% else %>
-          <i class="fas fa-user-circle fa-2x"></i>
-        <% end %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <div class="text-center text-primary"><%= current_user.username %></div>
