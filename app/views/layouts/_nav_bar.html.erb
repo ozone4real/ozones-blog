@@ -1,7 +1,22 @@
 <nav class="header pt-2">
 <div class="nav-container" >
 <div class="row align-items-center">
-<div class="col-5"> <%= link_to '<span class="site-title">Ozone\'s blog</span>'.html_safe, root_path %> </div>
+<div class="row col-5 justify-content-start align-items-center">
+<div class="col">
+ <%= link_to '<span class="site-title">Ozone\'s blog</span>'.html_safe, root_path %> 
+ </div>
+      <div class="nav-item dropdown col">
+        <a class="nav-link dropdown-toggle font-weight-bold float-left" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <%= if logged_in? and current_user.is_admin?; link_to('Create Category', new_category_path, class: "dropdown-item"); end %>
+        <% Category.all.each do |category| %>
+          <%= link_to category.name, category_path(category.id), class: "dropdown-item" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
 <div class="col-5">
 <div class="search-container">
 <input type="search" aria-label="Search" placeholder="Search.." name="search">
@@ -20,7 +35,7 @@
           <%= link_to 'Log out', logout_path, method: :delete, class: "dropdown-item" %>
         </div>
   <% else %>
-  <a href="javascript:void(0)" class="login-modal-trigger dropdown-toggle"> Login </a>
+  <a href="javascript:void(0)" class="login-modal-trigger dropdown-toggle font-weight-bold"> Log In </a>
   <% end %>
       </span>
  </div>

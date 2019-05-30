@@ -1,0 +1,11 @@
+<div class="category-form" >
+<h4>Add a category</h4>
+<%= form_with model: @category, local: true, html: {class: "mt-4", role: "form"} do |f| %>
+<div class="form-group mb-4" >
+  <%= f.text_field :name, placeholder: 'Enter a category' %>
+  </div>
+  <div class="form-group mb-4" >
+  <%= f.submit %>
+  </div>
+<% end %>
+</div>

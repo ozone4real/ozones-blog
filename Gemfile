@@ -24,6 +24,10 @@ gem 'quilljs-rails'
 
 gem 'carrierwave', '~> 1.0'
 
+gem 'cloudinary'
+
+gem 'bootstrap-multiselect-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -41,7 +45,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'composite_primary_keys', '~> 11.2'
-
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap4'
+gem "async"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -54,6 +60,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.7'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -75,6 +83,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rails-controller-testing'
 end
 
 group :production do

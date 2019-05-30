@@ -3,7 +3,7 @@
   margin: auto;
 }
 .header {
-  height: 70px;
+  height: 60px;
   background: #000000;
   color: white;
   box-shadow: 3px 3px 7px #888888;
@@ -47,7 +47,7 @@
   height: 32px;
 }
 
-.header .dropdown-toggle::after {
+.header span .dropdown-toggle::after {
   content: none;
 }
 

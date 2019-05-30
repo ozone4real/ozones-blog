@@ -14,5 +14,6 @@ $(document).on 'turbolinks:load', ->
     likeCount = parseInt $('#like-count').text()
     if $(this).hasClass('far') then $('#like-count').text(likeCount + 1) else $('#like-count').text(likeCount - 1)
     $(this).toggleClass('fas').toggleClass('far')
+  $('#selectpicker').multiselect()
     
 

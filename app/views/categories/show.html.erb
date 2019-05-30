@@ -1,0 +1,7 @@
+<h3 class= "mt-5"> <%= @category.name%> </h3>
+<div class="featured-articles my-4">
+<%= if @category.articles.blank? then "<h3>There are no articles for this category </h3>".html_safe end %>
+<% @category.articles.each do |article| %>
+<%= render 'layouts/article_card', article: article, truncValue: {article_body: 120, article_title: 40} %>
+<% end %>
+</div>

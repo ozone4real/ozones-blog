@@ -26,4 +26,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def require_admin
+    if !current_user.is_admin?
+      flash[:error] = "You are forbidden from performing that action"
+      redirect_to root_path
+    end
+  end
 end

@@ -13,8 +13,10 @@
 <%= form.text_area :article_body, class: 'quill_container', placeholder: 'Write your story....',  required: true %>
 <small class="text-danger"><%= "Article body #{@article.errors[:article_body][0]}" if @article.errors[:article_body].any? %> </small>
 </div>
+<div class="form-group mb-4" >
+<%= form.collection_select :category_ids, Category.all, :id, :name, {}, {multiple: "multiple", id: "selectpicker"} %>
+</div>
 <div class="form-group">
 <%= form.submit class: 'btn btn-dark btn-lg' %> 
 </div>
 <% end %>
-<%= link_to 'Back to articles listing', articles_path %> 

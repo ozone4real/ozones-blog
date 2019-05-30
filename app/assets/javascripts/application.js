@@ -20,6 +20,7 @@
 //= require quill.min
 //= require quill.global
 //= require toastr
+//= require bootstrap-multiselect
 
 $(document).ready(function() {
   toastr.options = {

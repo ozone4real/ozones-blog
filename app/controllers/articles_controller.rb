@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
 
   def create
     article_data = calculate_time_to_read(article_params)
+    p article_data
     @article = Article.new(article_data)
     @article.user = current_user
     if @article.save
@@ -37,6 +38,7 @@ class ArticlesController < ApplicationController
 
   def update
     article_data = calculate_time_to_read(article_params)
+    p article_data
     if @article.update(article_data)
       flash.now[:success] = "Article was successfully updated"
       redirect_to article_path @article.slug
@@ -72,7 +74,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :article_body, :image_url)
+    params.require(:article).permit(:title, :article_body, :image_url, category_ids: [] )
   end
 
   def liked
@@ -80,7 +82,7 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @article.user
+    unless current_user.is_admin? || current_user === @article.user
       flash[:error] = "You did not author this article"
       redirect_to root_path
     end

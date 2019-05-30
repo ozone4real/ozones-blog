@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   post 'articles/:article_id/likes', to: 'articles#like_article'
   delete 'articles/:article_id/likes', to: 'articles#dislike_article'
   delete 'logout', to: 'users#logout_user'
-  patch '/articles/:id', to: 'articles#update'
-
+  patch 'articles/:id', to: 'articles#update'
+  
   resources :articles, param: :slug, except: [:update]
+  resources :categories
 
 end

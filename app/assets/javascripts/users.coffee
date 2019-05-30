@@ -23,20 +23,25 @@ $(document).on 'turbolinks:load', ->
           processData: false,
           contentType: false
         })
-        .done(({user: {image_url}}) -> 
-          console.log image_url
-          $('.profile-img').attr('src', image_url.url)
+        .done(({user}) -> 
+          console.log user
+          $('.profile-img').attr('src', user.image_url.url)
         )
         .fail(({responseJSON, status}) -> 
           console.log responseJSON
         )
   $('.profile-edit-btn').click ->
+    $('.nav-link[data-content="profile-details"]').addClass('active')
+    $('.nav-link').not('[data-content="profile-details"]').removeClass('active')
+    $(".tab-item#profile-details").show()
+    $(".tab-item").not("#profile-details").hide()
     editButton = $(this)
     editButton.hide()
     $('.update-buttons').show()
     $("[data-field]").hide()
     $('.edit-input').show()
     $('.edit-input:first').focus()
+    
     # emailField = $("[data-field = 'fullname']")
     # bioField = $("[data-field = 'bio']")
     # emailField.replaceWith("<input type='text' value='#{emailField.html()}'/>")

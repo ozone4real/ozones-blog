@@ -1,3 +1,4 @@
+require 'async'
 class UsersController < ApplicationController
   before_action :require_user, only: %i(profile update_profile_img)
 
@@ -20,7 +21,6 @@ class UsersController < ApplicationController
       flash[:success] = "Successfully logged in"
       payload = { id: user.id, username: user.username }
       token = JsonWebToken.encode(payload)
-      puts token
       session[:token] = token
       json_response({ user: user, token: token }, 200)
     else
@@ -38,8 +38,8 @@ class UsersController < ApplicationController
   end
 
   def edit_profile
-    @user = User.update(current_user[:id], params.permit(:full_name, :bio))
-    if @user.save
+    @user = User.find(current_user[:id])
+    if @user.update(params.permit(:full_name, :bio))
       flash[:success] = "Profile successfully updated"
     else
       flash[:danger] = @user.errors.full_messages
@@ -48,11 +48,13 @@ class UsersController < ApplicationController
   end
 
   def update_profile_img
-    @user = User.update(current_user[:id], params.permit(:image_url))
-    if !@user.save
+    @user = User.find(current_user[:id])
+    if !@user.update(params.permit(:image_url))
       json_response({ message: "image upload error" }, 400)
     else
-      json_response({ user: @user }, 200)
+      user = User.find(current_user[:id])
+      p user
+      json_response({ user: user }, 200)
     end
   end
 

@@ -3,13 +3,13 @@
 one:
   username: MyString
   email: MyString
-  password: MyString
-  avatar_url: MyString
+  password_digest: MyString
+  image_url: MyString
   bio: MyText
 
 two:
   username: MyString
   email: MyString
-  password: MyString
-  avatar_url: MyString
+  password_digest: MyString
+  image_url: MyString
   bio: MyText

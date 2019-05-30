@@ -1,0 +1,24 @@
+// Place all the styles related to the Categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.category-form {
+  width: 40%;
+  margin: 5rem auto;
+}
+
+.category-form input {
+  width: 30rem;
+  height: 3rem;
+  border-radius: 0.7rem;
+}
+
+.category-form input[type='submit'] {
+  background: black;
+  color: white;
+}
+
+.category-form input[type='text'] {
+  padding-left: 1rem;
+  outline: none;
+}
