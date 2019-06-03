@@ -36,10 +36,18 @@ a {
   color: unset;
 }
 
+.profile-img-sm, .profile-img-md {
+  border-radius: 50%;
+}
+
 .profile-img-sm {
   height: 35px;
   width: 35px;
-  border-radius: 50%;
+}
+
+.profile-img-md {
+  height: 50px;
+  width: 50px;
 }
 
 li {

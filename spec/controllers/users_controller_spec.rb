@@ -5,7 +5,7 @@ RSpec.describe UsersController, type: :controller do
   let(:invalid_user) {{username: "090", email: "jhfhfhh", password: "ozone4real"}}
   let(:taken_user) {create :user}
   context "signup test" do
-  it "signs up a user successfully ifnthe user data is valid" do
+  it "signs up a user successfully if the user data is valid" do
     post :signup_user, params: valid_user
     expect(response.status).to eq(201)
     expect(response.body).to include("token")
@@ -19,7 +19,5 @@ RSpec.describe UsersController, type: :controller do
     p taken_user
     post :signup_user, params: taken_user.attributes
     expect(response.status).to eq(409)
-  end
-  end
-  
+  end  
 end

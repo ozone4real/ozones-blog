@@ -126,7 +126,7 @@
 .articles-section .user-details {
   justify-content: flex-start;
   vertical-align: middle;
-  align-items: center
+  align-items: center;
 }
 
 .featured-articles .article-img {
@@ -153,7 +153,7 @@
   overflow: hidden;
 }
 
-
+.article-page .extra-details,
 .featured-articles .extra-details {
   font-size: 13px;
   display: flex;
@@ -161,9 +161,14 @@
   justify-content: flex-start;
 }
 
+.article-page .extra-info,
 .featured-articles .extra-info {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+}
+
+.article-page .extra-details {
+  font-size: 15px;
 }
 
 .top-article img {

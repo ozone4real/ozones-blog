@@ -1,13 +1,20 @@
 <div class="article-page">
 <div class="article-title mb-4 text-center title"> <h1><%= @article.title %></h1> </div>
-<div class="row justify-content-center">
- <div class="mx-2 text-secondary" ><%= "#{time_ago_in_words(@article.created_at)} ago" %> <%= @article.time_to_read %> </div> 
- <div class="mx-2 text-primary">By <%= @article.user.username %></div>
- </div>
+<div class="extra-details justify-content-center">
+<div class="profile-img pr-1"> <%= gravatar_for @article.user, '-md' %> </div>
+<div class='extra-info text-secondary'>
+<div class="pr-2 pl-1" ><span class="text-primary">@<%= @article.user.username %></span></div>
+<div>
+<span class="pl-1 pr-1"><%= Date.strptime(@article.created_at.to_s) %></span>. 
+<span> <%= "#{@article.time_to_read} read" %></span>
+</div>
+</div>
+</div>
 <% unless @article.image_url.to_s.empty? %>
 <div class="article-image-container" style="background: url(<%= @article.image_url.to_s %>) no-repeat center center; background-size: cover;">.</div>
 <% end %>
-<div class="article-body"><%= sanitize @article.article_body %>
+<div class="article-body-container">
+<div class="article-body mb-5"><%= sanitize @article.article_body %> </div>
 <div class="reactions-section">
 <% if logged_in? %>
 <%= link_to("/articles/#{@article.id}/likes", method: 'post') do %>
