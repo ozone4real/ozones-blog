@@ -11,15 +11,15 @@
 <% if @articles.any? %>
 <div class="articles-section">
 <div class="selected-articles-sec row my-4">
-<div class="top-article col-9 pr-5">
+<div class="top-article pr-5">
 <h2 class="mb-4">Top Article</h2>
 <%= render 'layouts/article_card', article: @top_articles[0], truncValue: {article_body: 400, article_title: 60} %>
 </div>
 <div class="border my-5">
 </div>
-<div class="popular-articles col-2 py-5 pl-5 mr-0 pr-0">
+<div class="popular-articles py-5 pl-5 mr-0 pr-0">
 <h5 class="mb-3">Popular articles</h5>
-<% @most_liked_articles.take(5).each do |article| %>
+<% @most_liked_articles.take(6).each do |article| %>
 <%= link_to article_path(article.slug) do %>
 <hr>
 <div class="mb-3">

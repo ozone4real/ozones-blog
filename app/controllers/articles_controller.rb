@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    # binding.pry
     p params
     unless @article.user == current_user
       @article.increment!(:number_of_reads)

@@ -97,6 +97,20 @@
   color: black;
 }
 
+.top-article {
+  width: 78%;
+}
+
+.popular-articles {
+  width: 20%;
+}
+
+.selected-articles-sec {
+  justify-content: space-between;
+}
+
+
+
 .top-article .article-img {
   width: 100%;
   object-fit: cover;

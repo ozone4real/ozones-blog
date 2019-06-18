@@ -1,8 +1,12 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .profile-container {
   margin: 90px 0 30px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .profile-page img {
@@ -52,6 +56,11 @@
   margin-bottom: 10px;
 }
 
+.follow-btn {
+  font-weight: bold !important;
+  border-radius: 8px !important;
+}
+
 label {
   cursor: pointer;
 }
@@ -66,6 +75,16 @@ label {
 
 .edit-input {
   display: none;
+}
+
+.following {
+  background: #0080ff;
+  color: white !important;
+}
+
+.following.text-primary:hover,
+.following.text-primary:focus {
+  color: white !important;
 }
 
 #profile-details input,
@@ -84,6 +103,10 @@ label {
   box-shadow: 2px 5px 5px -2px #d8d8d8;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .user-article-cards a {
   color: black;
 }
@@ -99,6 +122,22 @@ label {
 
 #profile-details textarea {
   width: 50%;
+}
+
+#profile-for-current-user .profile-img-container {
+  width: 22%;
+}
+#profile-for-current-user .user-info-container {
+  width: 78%;
+}
+
+.profile-img-container {
+  max-width: 30%;
+}
+
+.user-info-container {
+  min-width: 70%;
+  width: 75%;
 }
 
 .user-article-buttons .fa-edit:hover {

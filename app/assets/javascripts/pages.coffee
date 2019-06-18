@@ -57,7 +57,8 @@ $(document).on 'turbolinks:load', ->
           dataType: 'json'
         })
         .done(({responseJSON, status}) -> window.location.replace('/') )
-        .fail(({responseJSON, status}) -> 
+        .fail(({responseJSON, status}) ->
+          console.log responseJSON 
           for key, value of responseJSON
             $("#signup-form input[name= #{key}]").next().html("#{key} #{value}")
         )

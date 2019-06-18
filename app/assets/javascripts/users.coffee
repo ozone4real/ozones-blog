@@ -64,8 +64,6 @@ $(document).on 'turbolinks:load', ->
     data = 
       bio: $('.edit-input .bio').val(),
       full_name: $('.edit-input.fullname').val()
-    console.log(data.bio)
-    console.log(data.full_name)
     $.ajax({
           url: '/profile/edit_profile',
           method: 'PATCH',
@@ -79,6 +77,16 @@ $(document).on 'turbolinks:load', ->
           for key, value of responseJSON
             $("#signup-form input[name= #{key}]").next().html("#{key} #{value}")
         )
+
+  $('.follow-btn').click ->
+    $(this).toggleClass('following')
+    if $(this).hasClass('following')
+      $(this).text('Following')
+    else
+      $(this).text('Follow')
+
+  # $('.follow-btn').off('hover') ->
+  #   $(this).text('Unfollow')
 
 # $(window).scroll ->
 #   console.log $('.nav-tabs').position()
