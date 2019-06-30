@@ -8,7 +8,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  if ENV["RAILS_ENV"] == "test" || ENV["RAILS_ENV"] == "development"
+  if ENV["RAILS_ENV"] == "test" ||  ENV["RAILS_ENV"] == "development"
     storage :file
     
     def store_dir
@@ -18,10 +18,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   
   if ENV["RAILS_ENV"] == "production"
     include Cloudinary::CarrierWave
-    process :convert => 'png'
 
     def public_id
-      "ozones-blog/#{model.class.to_s.downcase}/#{mounted_as}/#{model.id}"
+      if model.is_a?(User)
+        "ozones-blog/#{model.class.to_s.downcase}/#{mounted_as}/#{model.id}"
+      elsif model.is_a?(Article)
+        "ozones-blog/#{model.class.to_s.downcase}/#{mounted_as}/#{model.title}"
+      end
     end
   end
  

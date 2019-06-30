@@ -1,0 +1,27 @@
+<%= link_to "/users/#{user.id}" do %>
+  <div class="user-card">
+    <div class="profile-details-cont">
+      <div class="profile-img-cont mr-3">
+        <%= gravatar_for user, '-user-card' %>
+      </div>
+      <div class= "user-detail">
+        <p class="my-1">
+          <span class="text-dark font-weight-bold"><%= "@#{user.username}" %></span>
+          <span class="badge badge-light text-secondary">
+            <% if current_user.follow_each_other?(user) %>
+              you follow each other
+            <% elsif current_user.follows_you?(user) %>
+              follows you
+            <% end %>
+          </span>
+        </p>
+        <p class="my-1"><%= user.bio %></p>
+      </div>
+    </div>
+    <% unless user == current_user %>
+    <div class="follow-btn-container" >
+      <%= link_to check_following(user, 'Following', 'Follow'), "/users/#{user.id}/following", method: :post, class: "btn btn-sm border-dark text-dark #{check_following(user, 'following')} follow-btn" %>
+    </div>
+    <% end %>
+  </div>
+<% end %>

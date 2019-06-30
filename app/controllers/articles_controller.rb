@@ -24,9 +24,12 @@ class ArticlesController < ApplicationController
     redirect_to profile_path
   end
 
+  def search
+    @search_results = Article.search params[:query], suggest: [:full_text]
+  end
+
   def create
     article_data = calculate_time_to_read(article_params)
-    p article_data
     @article = Article.new(article_data)
     @article.user = current_user
     if @article.save

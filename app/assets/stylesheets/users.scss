@@ -3,31 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .profile-container {
-  margin: 90px 0 30px 0;
+  margin: 30px 0 30px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.profile-page img {
+.profile-page .profile-img {
   margin: auto !important;
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 120px;
 }
 
 .profile-page .nav {
-  justify-content: space-around;
+  justify-content: flex-start;
   margin: auto;
-  font-size: large;
 }
 
 .nav-tabs {
-  background: #e6e6e6;
-  opacity: 0.7;
   padding-top: 20px;
-  border: 1px solid #d8d8d8;
-  border-bottom: 0;
-  color: black;
+  border-width: 0px 0px 2px 0px;
+  border-color: #d8d8d8;
+  color: gray;
 }
 
 #my-articles {
@@ -39,10 +36,15 @@
   color: unset;
 }
 
-.nav-tabs .active,
-.nav-tabs a:hover {
-  background-color: white;
+.nav-link.active {
+  border-color: black !important;
+  border-width: 0px 0px 2px 0px;
 }
+
+// .nav-tabs .active,
+// .nav-tabs a:hover {
+//   background-color: white;
+// }
 
 .tab-item {
   display: none;
@@ -58,7 +60,7 @@
 
 .follow-btn {
   font-weight: bold !important;
-  border-radius: 8px !important;
+  border-radius: 10px !important;
 }
 
 label {
@@ -78,12 +80,12 @@ label {
 }
 
 .following {
-  background: #0080ff;
+  background: black;
   color: white !important;
 }
 
-.following.text-primary:hover,
-.following.text-primary:focus {
+.following.text-dark:hover,
+.following.text-dark:focus {
   color: white !important;
 }
 
@@ -140,9 +142,36 @@ label {
   width: 75%;
 }
 
+.profile-img-user-card {
+  width: 70px;
+  height: 70px;
+}
+
 .user-article-buttons .fa-edit:hover {
   color: black;
   box-shadow: 1px 1px 3px #d8d8d8;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20px 10px 20px;
+  border-radius: 15px;
+  border: 1px solid #d8d8d8;
+  margin-bottom: 15px;
+  box-shadow: 2px 5px 5px -2px #d8d8d8;
+  align-items: center;
+}
+
+.user-card .user-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-details-cont {
+  display: flex;
+  flex-direction: row;
 }
 // .nav-tabs li {
 //   width: 32%;

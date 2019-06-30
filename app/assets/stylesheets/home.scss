@@ -122,14 +122,14 @@
   font-weight: bolder;
 }
 
-.featured-articles {
+.featured-articles, .personalised-articles {
   display: flex;
   justify-content: flex-start;
   flex-flow: row wrap;
   align-items: baseline;
 }
 
-.featured-articles a:hover {
+.featured-articles a:hover, .personalised-articles a:hover {
   text-decoration: underline;
 }
 
@@ -143,24 +143,42 @@
   align-items: center;
 }
 
-.featured-articles .article-img {
-  height: 170px;
+.featured-articles .article-img,
+.personalised-articles .article-img {
   width: 100%;
   object-fit: cover;
 }
 
+.featured-articles .article-img {
+  height: 170px;
+}
+
+.personalised-articles .article-img {
+  height: 220px;
+}
+
 .featured-articles .article-card {
   width: 30%;
+}
+
+.personalised-articles .article-card {
+  width: 48%;
+}
+
+.featured-articles .article-card,
+.personalised-articles .article-card {
   margin: 10px;
   margin-bottom: 40px;
 }
 
-.featured-articles .article-card-title {
+.featured-articles .article-card-title,
+.personalised-articles .article-card-title {
   font-size: 18px;
   font-weight: bolder;
 }
 
-.featured-articles .article-card-body {
+.featured-articles .article-card-body,
+.personalised-articles .article-card-body {
   font-size: 14px;
   // max-height: 100px;
   line-height: 20px !important;
@@ -168,7 +186,8 @@
 }
 
 .article-page .extra-details,
-.featured-articles .extra-details {
+.featured-articles .extra-details,
+.personalised-articles .extra-details {
   font-size: 13px;
   display: flex;
   flex-direction: row;
@@ -176,6 +195,7 @@
 }
 
 .article-page .extra-info,
+.personalised-articles .extra-info,
 .featured-articles .extra-info {
   display: flex;
   flex-direction: column;

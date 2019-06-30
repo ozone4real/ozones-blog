@@ -48,6 +48,7 @@ gem 'composite_primary_keys', '~> 11.2'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
 gem "async"
+gem 'searchkick'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

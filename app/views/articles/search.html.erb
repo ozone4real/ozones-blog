@@ -1,0 +1,7 @@
+<h4 class= "mt-5"> Search results for "<%= params[:query] %>" </h4>
+<div class="featured-articles my-4">
+  <%= if @search_results.blank? then "<h3>Couldn't find articles matching your search </h3>".html_safe end %>
+    <% @search_results.each do |article| %>
+      <%= render 'layouts/article_card', article: article, truncValue: {article_body: 120, article_title: 40} %>
+    <% end %>
+  </div>

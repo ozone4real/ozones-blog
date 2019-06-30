@@ -8,17 +8,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
   </head>
-
   <body>
-  <%= render 'layouts/nav_bar' %>
+    <%= render 'layouts/nav_bar' %>
     <div class="container">
-    <%= render 'layouts/flash_messages' %>
-    <%= yield %>
+      <%= render 'layouts/flash_messages' %>
+      <%= yield %>
     </div>
     <div class='modal'>
-  <%= render 'users/sign_up_form' %>
-<%= render 'users/login_form' %>
- </div>
-  <%= render 'layouts/footer' %>
+      <%= render 'users/sign_up_form' %>
+      <%= render 'users/login_form' %>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
