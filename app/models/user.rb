@@ -6,10 +6,10 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: "Follower", foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships
-  before_save {self.email = email.downcase}
+  before_save { self.email = email.downcase }
   after_commit :reindex_articles
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[A-Za-z0-9][\w.-][a-zA-Z0-9]+@(\w{2,}\.){1,2}[a-z]{2,20}\z/ }
-  validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([a-zA-Z0-9][\w-]+[a-zA-Z0-9]){1,}\z/}
+  validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([a-zA-Z0-9][\w-]+[a-zA-Z0-9]){1,}\z/ }
   validates :full_name, allow_nil: true, format: { with: /[a-zA-Z-]+( [a-zA-Z-]+){1,2}/ }
   has_secure_password
 
@@ -34,8 +34,8 @@ class User < ApplicationRecord
   end
 
   def reindex_articles
-    articles.each do |account|
-    articles.reindex
+    articles.each do |_account|
+      articles.reindex
     end
   end
 end

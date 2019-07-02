@@ -10,23 +10,22 @@ class ImageUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   if ENV["RAILS_ENV"] == "test" || ENV["RAILS_ENV"] == "development"
     storage :file
-    
+
     def store_dir
       "system/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     end
   end
-  
+
   if ENV["RAILS_ENV"] == "production"
     include Cloudinary::CarrierWave
     def public_id
       if model.is_a?(User)
         "ozones-blog/#{model.class.to_s.downcase}/#{mounted_as}/#{model.id}"
       elsif model.is_a?(Article)
-        "ozones-blog/#{model.class.to_s.downcase}/#{mounted_as}/#{model.title.gsub(/\W/, '') }"
+        "ozones-blog/#{model.class.to_s.downcase}/#{mounted_as}/#{model.title.gsub(/\W/, '')}"
       end
     end
   end
- 
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)

@@ -42,10 +42,7 @@ $(document).on 'turbolinks:load', ->
     $('.edit-input').show()
     $('.edit-input:first').focus()
     
-    # emailField = $("[data-field = 'fullname']")
-    # bioField = $("[data-field = 'bio']")
-    # emailField.replaceWith("<input type='text' value='#{emailField.html()}'/>")
-    # bioField.replaceWith("<textarea> #{bioField.html()}</textarea>")
+    
     $('.cancel-btn').click ->
       $("[data-field").show()
       $('.edit-input').hide()
@@ -53,13 +50,7 @@ $(document).on 'turbolinks:load', ->
       editButton.show()
     profileContainer = $('.profile-container')
     
-    # fieldsToEdit = $("[data-field")
-    # fieldsToEdit.each (i, obj) ->
-    #   console.log $(this)
-    #   $(this).replaceWith("<input type='text' value='#{$(this).html()}'> </input>")
-    # fieldsToEdit
-
-    # blobUrl = window.URL.createObjectURL(this.files[0])
+    
   $('.save-btn').click ->
     data = 
       bio: $('.edit-input .bio').val(),
@@ -84,9 +75,3 @@ $(document).on 'turbolinks:load', ->
       $(this).text('Following')
     else
       $(this).text('Follow')
-
-  # $('.follow-btn').off('hover') ->
-  #   $(this).text('Unfollow')
-
-# $(window).scroll ->
-#   console.log $('.nav-tabs').position()

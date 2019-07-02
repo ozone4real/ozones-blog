@@ -69,7 +69,6 @@ $(document).on 'turbolinks:load', ->
           email: $('#login-form input[name= email]').val(),
           password: $('#login-form input[name= password]').val(),
         
-        # $('.login-form button').html()
     
         $.ajax({
           url: '/login',
@@ -85,8 +84,6 @@ $(document).on 'turbolinks:load', ->
         .fail(({responseJSON, status}) -> 
           console.log(responseJSON)
           $('#login-error-message').html(responseJSON.message)
-          # for key, value of responseJSON
-          #   $("#signup-form input[name= #{key}]").next().html("#{key} #{value}")
         )
 
   $(window).scroll ->

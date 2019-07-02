@@ -21,14 +21,14 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user
-    if !logged_in?
+    unless logged_in?
       flash[:error] = "Unauthorized access"
       redirect_to root_path
     end
   end
 
   def require_admin
-    if !current_user.is_admin?
+    unless current_user.is_admin?
       flash[:error] = "You are forbidden from performing that action"
       redirect_to root_path
     end

@@ -6,4 +6,4 @@ FactoryBot.define do
     username { "uguobia" }
     is_admin { true }
   end
-end 
+end

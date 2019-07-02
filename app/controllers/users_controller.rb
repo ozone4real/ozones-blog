@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_user, only: %i(profile update_profile_img)
-  before_action {@user = current_user}
+  before_action :require_user, only: %i(profile update_profile_img show)
+  before_action { @user = current_user }
 
   def signup_user
     @user = User.new(user_params)
@@ -48,9 +48,7 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def profile
-
-  end
+  def profile; end
 
   def edit_profile
     if @user.update(params.permit(:full_name, :bio))
@@ -76,11 +74,4 @@ class UsersController < ApplicationController
   def user_params
     params.permit(:username, :email, :password)
   end
-
-  # def require_same_user
-  #   unless current_user.is_admin? || current_user === @article.user
-  #     flash[:error] = "You did not author this article"
-  #     redirect_to root_path
-  #   end
-  # end
 end

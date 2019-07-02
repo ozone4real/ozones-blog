@@ -9,8 +9,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    # binding.pry
-    p params
     unless @article.user == current_user
       @article.increment!(:number_of_reads)
     end
@@ -78,7 +76,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :article_body, :image_url, category_ids: [] )
+    params.require(:article).permit(:title, :article_body, :image_url, category_ids: [])
   end
 
   def liked
