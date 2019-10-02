@@ -26,4 +26,4 @@ test:
 
 production:
   <<: *default
-  database: db/production.postgres
+  database: ozones_blog
