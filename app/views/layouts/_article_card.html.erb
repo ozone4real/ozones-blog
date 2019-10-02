@@ -8,7 +8,7 @@
     <%= link_to !logged_in? ?  nil : article.user == current_user ? profile_path : "/users/#{article.user.id}" do%>
       <div class="profile-img pr-1"> <%= gravatar_for article.user, '-sm' %> </div>
       <div class='extra-info text-secondary'>
-        <div class="pr-2 pl-1" ><span class="text-primary">@<%= article.user.username %></span></div>
+        <div class="pr-2 pl-1" ><span class="text-success">@<%= article.user.username %></span></div>
         <div>
         <% end %>
         <span class="pl-1 pr-1"><%= Date.strptime(article.created_at.to_s).to_formatted_s(:short) %></span>. 

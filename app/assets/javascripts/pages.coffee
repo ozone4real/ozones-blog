@@ -86,9 +86,19 @@ $(document).on 'turbolinks:load', ->
           $('#login-error-message').html(responseJSON.message)
         )
 
+  $('.scroll-next-btn').click ->
+     scrollOffset = $('.categories-list')[0].scrollWidth - $('.categories-list')[0].offsetWidth
+     $('.categories-list').scrollLeft(scrollOffset)
+     $(this).hide()
+     $('.scroll-prev-btn').show()
+  $('.scroll-prev-btn').click ->
+    $('.categories-list').scrollLeft(0)
+    $(this).hide()
+    $('.scroll-next-btn').show()
+
   $(window).scroll ->
-    if window.pageYOffset >= $('.header').scrollTop()
-      $('.header').css({"position": "fixed", 'top': '0', 'margin-bottom': '30px'})
-      $('.container').css('padding-top', '70px')
+    if window.pageYOffset >= $('.nav-header-cont').scrollTop()
+      $('.nav-header-cont').css({"position": "sticky", 'top': '0'})
+      # $('.container').css('padding-top', '70px')
 
 

@@ -1,68 +1,123 @@
 .nav-container {
-  width: 78%;
-  margin: auto;
+	width: 78%;
+	margin: auto;	
 }
-.header {
-  height: 60px;
-  background: #000000;
-  color: white;
-  box-shadow: 3px 3px 7px #888888;
+
+.nav-header-cont{
   z-index: 1000;
-  width: 100%;
-  vertical-align: middle;
+}
+
+.header {
+	background: #000000;
+	padding: 7px;
+	color: white;
+	z-index: 1000;
+	width: 100%;
+	vertical-align: middle;
 }
 
 .header a {
-  color: white;
-  text-decoration: none;
+	color: white;
+	text-decoration: none;
 }
 
 .header .site-title {
-  font-size: 28px;
-  font-weight: bold;
+	font-size: 28px;
+	font-weight: bold;
 }
 
 .text-primary {
-  color: #0080ff !important;
+	color: #0080ff !important;
 }
 
 .btn-primary {
-  background: #0080ff !important;
+	background: #0080ff !important;
 }
 
 .search-container {
-  float: right;
 }
 
 .search-container input {
-  padding: 3px 10px 3px 10px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  height: 32px;
+	padding: 3px 10px 3px 10px;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+	height: 36px;
+	border: 1px solid black;
+	width: 80%;
 }
 
+.categories-cont {
+	box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
+	background: white;
+	padding: 0;
+
+	span {
+		position: relative;
+		font-weight: 700;
+		color: rgba(0, 0, 0, 0.3);
+		cursor: pointer;
+	}
+
+	span:hover {
+		background: #f2f2f2;
+	}
+
+	.scroll-prev-btn {
+		left: 135px;
+		display: none;
+	}
+
+	.scroll-next-btn {
+		right: 120px;
+	}
+}
+
+.categories-list {
+	width: 78%;
+	margin: auto;
+	overflow: hidden;
+	padding: 0;
+	scroll-behavior: smooth;
+
+	.navbar-nav {
+		flex-direction: row;
+		flex-wrap: nowrap;
+
+		a {
+			color: #999;
+			font-weight: 400;
+			text-decoration: none;
+    }
+    
+    a.active {
+      color: black;
+    }
+    a:hover {
+      color: black;
+    }
+	}
+}
 .search-container button {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  height: 32px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	height: 36px;
 }
 
 .header span .dropdown-toggle::after {
-  content: none;
+	content: none;
 }
 
 .header .dropdown-toggle {
-  float: right;
+	float: right;
 }
 
 .login-modal-trigger .dropdown-menu.show {
-  left: -80px !important;
+	left: -80px !important;
 }
 .dropdown-menu a {
-  color: black;
-  text-align: center;
+	color: black;
+	text-align: center;
 }
-
 
 // header .site-title {
 //   font-size: 24px;

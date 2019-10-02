@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default categories-cont">
+  <span class="btn-sm scroll-prev-btn"><<</span>
+      <div class="container-fluid categories-list">
+        <div class="nav navbar-nav align-items-center">
+          <%= link_to "Home", root_path, class: "px-3 #{url == '/' && 'active'}" %>
+          <% Category.all.each do |category| %>
+            <%= link_to category.name, category_path(category.id), class:"px-3 #{params[:id].to_i == category.id && 'active'}" %>
+          <% end %>
+        </div>
+      </div>
+      <span class="btn-sm scroll-next-btn">>></span>
+    </nav>
+    <!-- <%= if logged_in? and current_user.is_admin?; link_to('Create Category', new_category_path, class: "dropdown-item"); end %> -->

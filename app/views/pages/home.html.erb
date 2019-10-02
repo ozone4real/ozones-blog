@@ -1,13 +1,5 @@
 <%# <%= link_to 'All articles', articles_path %>
 <%# <%= link_to "About", about_path %>
-<% if !logged_in? %>
-  <div class="jumbotron site-banner row">
-    <div class="banner-text col-3">All the buzz, all the gist</div>
-    <div class="col-3 sign-up-button">
-      <span class="signup-modal-trigger">Get started</span>
-    </div>
-  </div>
-<% end %>
 <% if @articles.any? %>
   <div class="articles-section">
     <div class="selected-articles-sec row my-4">
@@ -31,24 +23,39 @@
       </div>
     </div>
     <% if logged_in? %>
-    <% if @articles_by_people_you_follow %>
-      <hr>
-      <h2>By people you follow</h2>
-      <hr>
-      <div class="personalised-articles my-4">
-        <% @articles_by_people_you_follow.each do |article| %>
-          <%= render 'layouts/article_card', article: article, truncValue: {article_body: 250, article_title: 60} %>
+      <% if @articles_by_people_you_follow %>
+        <hr>
+        <h3>By people you follow</h3>
+        <hr>
+        <div class="personalised-articles my-4">
+          <% @articles_by_people_you_follow.each do |article| %>
+            <%= render 'layouts/article_card', article: article, truncValue: {article_body: 250, article_title: 60} %>
+          <% end %>
         <% end %>
-      <% end %>
       </div>
     <% end %>
-    <hr>
-    <h2>Featured Articles</h2>
-    <hr>
-    <div class="featured-articles my-4">
-      <% @featured_articles.sample(6).each do |article| %>
-        <%= render 'layouts/article_card', article: article, truncValue: {article_body: 120, article_title: 40} %>
-      <% end %>
+    <% if !logged_in? %>
+      <div class="site-banner row">
+        <div class="banner col-5">
+          <div class="typing-img">
+            <%= image_tag 'pngguru.com-id-bbckh.png' %>
+          </div>
+        </div>
+        <div class="col-5 sign-up-notice">
+          <h2 class="notice-text mb-4">Why wait longer? Join in the conversations now!</h2>
+          <div class="sign-up-button">
+            <button class="signup-modal-trigger">Get started</button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+      <hr>
+      <h3>Featured Articles</h3>
+      <hr>
+      <div class="featured-articles my-4">
+        <% @featured_articles.sample(6).each do |article| %>
+          <%= render 'layouts/article_card', article: article, truncValue: {article_body: 120, article_title: 40} %>
+        <% end %>
+      </div>
     </div>
-  </div>
 <% end %>
