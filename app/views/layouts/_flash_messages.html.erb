@@ -1,6 +1,6 @@
-<% unless flash.empty? %>
+<% unless flash.empty? || flash[:shown] %>
   <script type="text/javascript">
-    console.log("Yeeeeeeah")
+  $('#toast-container').hide()
     <% flash.each do |f| %>
     <% type = f[0].to_s %>
     toastr['<%= type %>']('<%= f[1] %>');

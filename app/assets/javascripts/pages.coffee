@@ -80,7 +80,7 @@ $(document).on 'turbolinks:load', ->
         })
         .done(({responseJSON, status}) ->
           console.log(responseJSON)
-          window.location.replace('/') )
+          window.location.reload() )
         .fail(({responseJSON, status}) -> 
           console.log(responseJSON)
           $('#login-error-message').html(responseJSON.message)

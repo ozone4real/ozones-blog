@@ -84,8 +84,8 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    unless current_user.is_admin? || current_user === @article.user
-      flash[:error] = "You did not author this article"
+    unless current_user.is_admin? || current_user.id == @article.user_id
+      flash[:error] = "You did not author the article, so you can't edit or delete it"
       redirect_to root_path
     end
   end

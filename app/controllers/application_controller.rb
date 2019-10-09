@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  add_flash_types :success, :danger, :info, :notice
+  add_flash_types :success, :danger, :info, :notice, :shown
   include Response
   include ExceptionHandler
   protect_from_forgery with: :exception

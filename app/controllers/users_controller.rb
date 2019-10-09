@@ -32,11 +32,11 @@ class UsersController < ApplicationController
 
   def login_user
     user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      flash[:success] = "Successfully logged in"
+    if user&.authenticate(params[:password])
       payload = { id: user.id, username: user.username }
       token = JsonWebToken.encode(payload)
       session[:token] = token
+      flash[:success] = "Welcome back #{user.username}"
       json_response({ user: user, token: token }, 200)
     else
       json_response({ message: "Invalid email or password" }, 401)

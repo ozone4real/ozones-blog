@@ -8,11 +8,7 @@
         <p class="my-1">
           <span class="text-dark font-weight-bold"><%= "@#{user.username}" %></span>
           <span class="badge badge-light text-secondary">
-            <% if current_user.follow_each_other?(user) %>
-              you follow each other
-            <% elsif current_user.follows_you?(user) %>
-              follows you
-            <% end %>
+            <%= show_following_badge %>
           </span>
         </p>
         <p class="my-1"><%= user.bio %></p>

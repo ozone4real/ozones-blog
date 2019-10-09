@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
   def home
-    @articles = Article.order(created_at: :desc)
+    @articles = Article.order(created_at: :desc).includes(:likes)
     @user = User.new
     @top_articles = @articles.sort { |a, b| b.number_of_reads <=> a.number_of_reads }
     @most_liked_articles = sort_by_likes(@articles)
     @featured_articles = @articles
-    if current_user && current_user.following.present?
+    if current_user&.following.present?
       articles_by_mutual_followees = sort_by_likes(find_mutual_followees.articles).first if find_mutual_followees
       articles_by_people_you_follow = current_user.following.map(&:articles).flatten
       @articles_by_people_you_follow = (articles_by_mutual_followees ? articles_by_people_you_follow << articles_by_mutual_followees : articles_by_people_you_follow).

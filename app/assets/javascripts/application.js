@@ -27,6 +27,8 @@ $(document).ready(function() {
     closeButton: true,
     debug: false,
     positionClass: 'toast-top-right',
+    preventDuplicates: true,
+    progressBar: true,
     onclick: null,
     showDuration: '300',
     hideDuration: '1000',
@@ -34,7 +36,25 @@ $(document).ready(function() {
     extendedTimeOut: '1000',
     showEasing: 'swing',
     hideEasing: 'linear',
-    showMethod: 'fadeIn',
-    hideMethod: 'fadeOut'
+    showMethod: 'show',
+    hideMethod: 'hide'
   };
 });
+
+// toastr.options = {
+//   "closeButton": true,
+//   "debug": false,
+//   "newestOnTop": false,
+//   "progressBar": true,
+//   "positionClass": "toast-top-right",
+//   "preventDuplicates": true,
+//   "onclick": null,
+//   "showDuration": "300",
+//   "hideDuration": "1000",
+//   "timeOut": "5000",
+//   "extendedTimeOut": "1000",
+//   "showEasing": "swing",
+//   "hideEasing": "linear",
+//   "showMethod": "show",
+//   "hideMethod": "hide"
+// }

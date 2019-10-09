@@ -30,5 +30,5 @@
       </span>
     </div>
   </nav>
-  <%= render 'layouts/navbar' %>
+  <%= render('layouts/navbar') unless url.match(/profile|users/) %>
   </div>
