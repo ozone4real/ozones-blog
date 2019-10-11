@@ -2,6 +2,7 @@ class User < ApplicationRecord
   mount_uploader :image_url, ImageUploader
   has_many :articles, dependent: :destroy
   has_many :likes
+  has_many :comments, dependent: :destroy
   has_many :active_relationships, class_name: "Follower", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Follower", foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed

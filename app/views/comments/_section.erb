@@ -1,0 +1,10 @@
+<div class="comments-sec mt-5">
+<%= render 'comments/form' %>
+<div class="comments mt-5">
+<% @article.comments.each do |comment| %>
+<% if  comment.valid? %>
+<%= render 'comments/card', comment: comment %>
+<% end %>
+<% end %>
+</div>
+</div>

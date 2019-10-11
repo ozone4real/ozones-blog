@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories
+  has_many :comments, dependent: :destroy
   validates :title, presence: true, length: { minimum: 3, maximum: 100 }
   validates :article_body, presence: true, length: { minimum: 10, maximum: 20_000 }
   after_create :generate_unique_slug

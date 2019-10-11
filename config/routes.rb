@@ -15,9 +15,12 @@ Rails.application.routes.draw do
     patch "/:id" => "articles#update"
     delete "/:article_id/likes" => "articles#dislike_article"
     post "/:article_id/likes" => "articles#like_article"
+    post "/:id/comments" => "comments#create"
   end
   
-  resources :articles, param: :slug, except: [:update]
+  resources :articles, param: :slug, except: [:update] do
+    resources :comments
+  end
   resources :categories
 
 end

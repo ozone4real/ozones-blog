@@ -2,16 +2,21 @@
   <div class="article-title mb-4 text-center title"> 
     <h1><%= @article.title %></h1>
      </div>
-  <div class="extra-details justify-content-center">
+     <%= link_to "/users/#{@article.user_id}" do %>
+  <div class="extra-details justify-content-center align-items-center">
     <div class="profile-img pr-1"> <%= gravatar_for @article.user, '-md' %> </div>
     <div class='extra-info text-secondary'>
-      <div class="pr-2 pl-1" ><span class="text-primary">@<%= @article.user.username %></span></div>
+      <div class="pr-2 pl-1 mb-1" >
+      <span class="text-success">@<%= @article.user.username %></span>
+      <%= link_to check_following(@article.user, 'Following', 'Follow'), "/users/#{@article.user_id}/following", method: :post, class: "btn btn-sm border-dark text-dark ml-2 #{check_following(@article.user, 'following')} follow-btn" %>
+      </div>
       <div>
         <span class="pl-1 pr-1"><%= Date.strptime(@article.created_at.to_s).to_formatted_s(:short) %></span>. 
         <span> <%= "#{@article.time_to_read} read" %></span>
       </div>
     </div>
   </div>
+  <% end %>
   <% unless @article.image_url.to_s.empty? %>
     <div class="article-image-container" style="background: url(<%= @article.image_url.to_s %>) no-repeat center center; background-size: cover;">.</div>
   <% end %>
@@ -24,6 +29,10 @@
         <% end %>
       <% end %>
       <small><span id="like-count"><%= @article.likes.length %></span> likes</small>
+      <small class="ml-3"><span id="comments-count"> <%= pluralize(@article.comments.count, 'comment') %> </span> </small>
+    </div>
+    <div>
+    <%= render 'comments/section' %>
     </div>
   </div>
 </div>

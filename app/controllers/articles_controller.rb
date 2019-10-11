@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.destroy(params[:slug])
-    flash.now[:error] = "Article was successfully deleted"
+    flash[:info] = "Article was successfully deleted"
     redirect_to profile_path
   end
 

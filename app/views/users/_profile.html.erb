@@ -1,4 +1,4 @@
-<div class="profile-page" id="<%= if profile[:for_current_user]; "profile-for-current-user"; end  %>" >
+<div class="profile-page" id="<%= "profile-for-current-user" if profile[:for_current_user]  %>" >
 <div class="profile-container">
 <div class="profile-img-container">
 <label for="profile-img-upload" >
@@ -90,16 +90,17 @@
           <h5><%= article.title %></h5>
         </div>
         <div class="user-article-body">
-          <%= sanitize article.article_body.truncate(200) %>
+          <%= article.article_body.gsub(/(<.+?>)|(<.+?\/>)/, '').truncate(200) %>
         </div>
       <% end %>
-      <div class="row text-secondary">
+      <div class="row text-secondary mt-3">
         <div class="additional-details col-10">
           <span><small><%= Date.strptime(article.created_at.to_s) %> </small></span>
         </div>
         <% if profile[:for_current_user] %>
           <div class="user-article-buttons col-2">
-            <%= link_to '<i class="far fa-edit mr-2 text-secondary"></i>'.html_safe , edit_article_path(article.slug) %>  <%= link_to '<i class="fa fa-trash text-danger" aria-hidden="true"></i>'.html_safe, article_path(article.id), method: 'delete' %>
+            <%= link_to '<i class="far fa-edit mr-2 text-secondary" title="edit"></i>'.html_safe , edit_article_path(article.slug) %>
+            <%= link_to '<i class="fa fa-trash text-danger" aria-hidden="true" title="delete"></i>'.html_safe, article_path(article.id), method: 'delete', data: {confirm: "Are you sure you want to delete this article?"} %>
           </div>
         <% end %>
       </div>

@@ -18,6 +18,6 @@
       <%= render 'users/sign_up_form' %>
       <%= render 'users/login_form' %>
     </div>
-    <%= render 'layouts/footer' %>
+    <%= render 'layouts/footer' unless url.match(/profile|users/) %>
   </body>
 </html>

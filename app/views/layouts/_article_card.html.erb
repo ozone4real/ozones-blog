@@ -2,9 +2,9 @@
   <%= link_to article_path(article.slug) do %>
     <div class='article-card-image-container mb-3' ><%= image_tag(article.image_url.present? ? article.image_url.to_s : 'Blog.jpg', class: "article-img") %></div>
     <div class='article-card-title mb-1 text-dark'> <%= article.title.truncate(truncValue[:article_title]) %> </div>
-    <div class='article-card-body'><%= sanitize article.article_body.truncate(truncValue[:article_body]) %> </div>
+    <div class='article-card-body mt-1'><%= sanitize article.article_body.gsub(/(<.+?>)|(<.+?\/>)/, '').truncate(truncValue[:article_body]) %> </div>
   <% end %>
-  <div class="extra-details">
+  <div class="extra-details mt-2">
     <%= link_to !logged_in? ?  nil : article.user == current_user ? profile_path : "/users/#{article.user.id}" do%>
       <div class="profile-img pr-1"> <%= gravatar_for article.user, '-sm' %> </div>
       <div class='extra-info text-secondary'>

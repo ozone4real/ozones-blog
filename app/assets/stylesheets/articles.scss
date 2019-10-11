@@ -5,6 +5,13 @@
 .form-container {
   width: 90%;
   margin: auto;
+
+  .form-control.ql-container {
+    height: 300px;
+    border-width: 0 !important;
+    font-size: 20px;
+  }
+  
 }
 
 .reactions-section a {
@@ -44,12 +51,6 @@
   padding: 10px 20px 10px 20px;
 }
 
-.form-control.ql-container {
-  height: 300px;
-  border-width: 0 !important;
-  font-size: 20px;
-}
-
 .form-container .btn-primary {
   background-color: black;
   border-color: black;
@@ -69,27 +70,42 @@
 
 .article-page {
   margin: 70px auto 70px auto;
+  .extra-info {
+    .follow-btn {
+      border-radius: 5px !important;
+      font-size: 12px;
+    }
+  }
+  .article-title {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: Poppins;
+    text-transform: capitalize;
+    font-family: Poppins;
+  }
+
+  a:hover {
+    text-decoration: unset;
+  }
+
+  .article-image-container {
+    height: 500px;
+    margin: 40px auto 80px auto;
+  }
+
+  .article-body-container {
+    width: 70%;
+    margin: auto;
+  }
+  
+  .article-body {
+    font-size: 17px;
+    line-height: 32px;
+  }
+
+  .article-body::first-letter {
+    font-size: xx-large;
+    font-weight: 400;
+  }
 }
 
-.article-page .article-title {
-  font-size: 50px;
-  font-weight: bold;
-  font-family: Poppins;
-  text-transform: capitalize;
-  font-family: Poppins;
-}
-
-.article-page .article-image-container {
-  height: 500px;
-  margin: 40px auto 80px auto;
-}
-
-.article-page .article-body-container {
-  width: 80%;
-  margin: auto;
-}
-
-.article-page .article-body {
-  font-size: 18px;
-  line-height: 32px;
-}

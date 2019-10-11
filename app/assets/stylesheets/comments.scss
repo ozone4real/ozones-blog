@@ -1,0 +1,28 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.comments-sec {
+  .form-control.ql-container {
+    height: 100px;
+  }
+
+  .comment-card {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    font-size: 15px;
+
+    img {
+      height: 40px;
+      width: 40px;
+    }
+
+    .comment-body {
+      color: rgba($color: #000000, $alpha: 0.6)
+    }
+  }
+
+  .comment-card:hover {
+    background: rgb(241, 241, 241);
+  }
+}
