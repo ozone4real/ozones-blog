@@ -16,4 +16,14 @@ module UsersHelper
       "follows you"
     end
   end
+
+  def profile_link(user_id)
+    if !logged_in?
+      'javascript:void(0)'
+    elsif user_id == current_user.id
+      profile_path
+    else
+      "/users/#{user_id}"
+    end
+  end
 end

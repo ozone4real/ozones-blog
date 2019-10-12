@@ -1,0 +1,13 @@
+<div class="comments-sec mt-5">
+  <%= logged_in? ? render('comments/form', id: 'comment_create_input', action: 'Leave Comment', comment: @article.comments.build) : render('layouts/banner') %>
+  <% unless @article.comments.count.zero? %>
+    <h6 class="mt-5"> comments (<%= @article.comments.count %>) </h6>
+    <div class="comments">
+      <% @article.comments.each do |comment| %>
+        <% if  comment.id %>
+          <%= render 'comments/card', comment: comment %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

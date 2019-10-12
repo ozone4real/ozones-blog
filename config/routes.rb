@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   scope "articles" do
     get "/search" => "articles#search"
     patch "/:id" => "articles#update"
-    delete "/:article_id/likes" => "articles#dislike_article"
-    post "/:article_id/likes" => "articles#like_article"
-    post "/:id/comments" => "comments#create"
   end
   
   resources :articles, param: :slug, except: [:update] do
-    resources :comments
+    resources :comments do
+      post "/likes" => "comments#like_comment"
+    end
+    post "/likes" => "articles#like_article"
   end
   resources :categories
 

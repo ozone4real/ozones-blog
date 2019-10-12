@@ -7,6 +7,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  a:hover {
+    text-decoration: unset;
+  }
 }
 
 .profile-page .profile-img {
@@ -28,7 +31,7 @@
 }
 
 #my-articles {
-  max-height: 65vh;
+  max-height: 75vh;
   overflow: auto;
 }
 
@@ -121,10 +124,6 @@ label {
   .article-content {
     width: 62%;
   }
-
-  a:hover {
-    text-decoration: unset;
-  }
 }
 
 .user-article-cards:hover .user-article-buttons {
@@ -174,11 +173,21 @@ label {
   height: 70px;
 }
 
-.user-article-buttons {
+.user-article-buttons{
   display: none;
+  font-size: 15px;
+  a {
+    color: rgba($color: #000000, $alpha: 0.7) !important;
+  }
+  
+  
   .fa-edit:hover {
-    color: black;
+    color: black !important;
     box-shadow: 1px 1px 3px #d8d8d8;
+  }
+
+  .fa-trash:hover {
+    color: red !important;
   }
 } 
 

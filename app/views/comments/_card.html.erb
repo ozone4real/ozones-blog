@@ -1,9 +1,41 @@
-<div class="comment-card"> 
-<div class="commenter-img mr-2">
-<%= image_tag comment.user.image_url.to_s %>
-</div>
-<div class="pt-0">
-<div><%= comment.user.username %> <span><small class="text-secondary"><%= "#{time_ago_in_words(comment.created_at)} ago" %></small><span></div>
-<div class="comment-body mt-2"> <%= sanitize comment.body %> </div>
-</div>
+<div class="comment-card">
+  <div class="commenter-img left-sec mr-2">
+   <%= link_to profile_link(comment.user_id) do%>
+    <%= image_tag comment.user.image_url.to_s %>
+    <% end %>
+  </div>
+  <div class="pt-0 right-sec">
+    <div class='row justify-content-between ml-0 mr-0'>
+      <div>
+      <%= link_to profile_link(comment.user_id) do%>
+        <b class="text-dark"><%= comment.user.username %></b>
+      <% end %>
+        <span>
+          <small class="text-secondary">
+            <%= "#{time_ago_in_words(comment.created_at)} ago" %>
+          </small>
+        </span>
+      </div>
+      <div class="comment-actions">
+      <% if logged_in? && current_user.id == comment.user_id %>
+       <%= link_to '<i class="far fa-edit mr-2" title="edit"></i>'.html_safe , 'javascript:void(0)', remote: true %>
+        <%= link_to '<i class="fa fa-trash" aria-hidden="true" title="delete"></i>'.html_safe, article_comment_path(@article.slug, comment.id), method: 'delete', data: {confirm: "Are you sure you want to delete this comment?"}, remote: true %>
+        <% end %>
+      </div>
+    </div>
+    <div class="comment-body mt-2">
+     <div class="comment-cont py-0 my-0">
+     <%= sanitize comment.body %>
+     </div>
+     <%= render 'comments/form', id: "comment_edit_input-#{comment.id}", comment: comment, action: 'Save' %>
+      </div>
+    <div class="reactions-section comment-reactions-sec">
+      <% if logged_in? %>
+        <%= link_to(article_comment_likes_path(@article.slug, comment.id), method: 'post', remote: true) do %>
+          <i class= '<%= "#{comment.liked_by(current_user) ? 'fas' : 'far'}" %> fa-heart' id="like-button" style="cursor: pointer" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
+      <small><span class="like-count"><%= comment.likes.length %> </span> likes</small>
+    </div>
+  </div>
 </div>

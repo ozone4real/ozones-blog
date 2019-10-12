@@ -16,7 +16,7 @@
     </div>
     <% unless user == current_user %>
     <div class="follow-btn-container" >
-      <%= link_to check_following(user, 'Following', 'Follow'), "/users/#{user.id}/following", method: :post, class: "btn btn-sm border-dark text-dark #{check_following(user, 'following')} follow-btn" %>
+      <%= link_to check_following(user, 'Following', 'Follow'), "/users/#{user.id}/following", method: :post, class: "btn btn-sm border-dark text-dark #{check_following(user, 'following')} follow-btn", remote: true, onclick: "return false" %>
     </div>
     <% end %>
   </div>

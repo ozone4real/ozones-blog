@@ -14,13 +14,16 @@
   
 }
 
-.reactions-section a {
-  text-decoration: unset;
-  color: unset;
-}
-
-.reactions-section a:hover {
-  text-decoration: unset;
+.reactions-section {
+  font-size: 15px;
+  a {
+    text-decoration: unset;
+    color: unset;
+  }
+  
+  .reactions-section a:hover {
+    text-decoration: unset;
+  }
 }
 
 .create-article-page input[type='file'] {

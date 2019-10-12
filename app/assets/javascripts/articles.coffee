@@ -10,10 +10,24 @@ $(document).on 'turbolinks:load', ->
     $(this).hide()
     $('#upload-cover-img').val(null)
     $('.img-preview').hide()
-  $('#like-button').click ->
-    likeCount = parseInt $('#like-count').text()
-    if $(this).hasClass('far') then $('#like-count').text(likeCount + 1) else $('#like-count').text(likeCount - 1)
+  $('.article-reactions-sec #like-button, .comment-reactions-sec #like-button').click (e) ->
+    e.preventDefault()
+    parent = $(e.target.closest('.reactions-section'))
+    likeCount = parseInt parent.find('.like-count').text()
+    if $(this).hasClass('far') then parent.find('.like-count').text(likeCount + 1) else parent.find('.like-count').text(likeCount - 1)
     $(this).toggleClass('fas').toggleClass('far')
+
+  $('.comment-actions .fa-edit').click (e) ->
+    e.preventDefault()
+    parent = $(e.target.closest('.right-sec'))
+    parent.find('.comment-cont').hide()
+    parent.find('form').show()
+    parent.find('form .ql-editor').focus()
+    $('.cancel-btn').click (e) ->
+      e.preventDefault()
+      parent.find('.comment-cont').show()
+      parent.find('form').hide()
+
   $('#selectpicker').multiselect()
     
 

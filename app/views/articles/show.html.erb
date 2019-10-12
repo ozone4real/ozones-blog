@@ -8,7 +8,13 @@
     <div class='extra-info text-secondary'>
       <div class="pr-2 pl-1 mb-1" >
       <span class="text-success">@<%= @article.user.username %></span>
-      <%= link_to check_following(@article.user, 'Following', 'Follow'), "/users/#{@article.user_id}/following", method: :post, class: "btn btn-sm border-dark text-dark ml-2 #{check_following(@article.user, 'following')} follow-btn" %>
+      <% if logged_in? %>
+      <%= link_to check_following(@article.user, 'Following', 'Follow'),
+       "/users/#{@article.user_id}/following",
+        method: :post,
+         class: "btn btn-sm border-dark text-dark ml-2 #{check_following(@article.user, 'following')} follow-btn",
+         remote: true, onclick: "return false" %>
+      <% end %>
       </div>
       <div>
         <span class="pl-1 pr-1"><%= Date.strptime(@article.created_at.to_s).to_formatted_s(:short) %></span>. 
@@ -20,16 +26,17 @@
   <% unless @article.image_url.to_s.empty? %>
     <div class="article-image-container" style="background: url(<%= @article.image_url.to_s %>) no-repeat center center; background-size: cover;">.</div>
   <% end %>
-  <div class="article-body-container">
+  <div class="article-body-container mt-5">
     <div class="article-body mb-5"><%= sanitize @article.article_body %> </div>
-    <div class="reactions-section">
+    <div class="reactions-section article-reactions-sec">
       <% if logged_in? %>
-        <%= link_to("/articles/#{@article.id}/likes", method: 'post') do %>
-          <i class= '<%= "#{liked_by_me?(@article) ? 'fas' : 'far'}" %> fa-heart' id="like-button" style="font-size: 25px; cursor: pointer" aria-hidden="true"></i>
+        <%= link_to(article_likes_path(@article.slug), method: 'post', remote: true) do %>
+          <i class= '<%= "#{@article.liked_by(current_user) ? 'fas' : 'far'}" %> fa-heart' id="like-button" style="font-size: 25px; cursor: pointer" aria-hidden="true"></i>
         <% end %>
       <% end %>
-      <small><span id="like-count"><%= @article.likes.length %></span> likes</small>
-      <small class="ml-3"><span id="comments-count"> <%= pluralize(@article.comments.count, 'comment') %> </span> </small>
+      <span class="like-count"><%= @article.likes.length %> </span> likes
+      &nbsp
+      <span id="comments-count ml-5"> <%= pluralize(@article.comments.count, 'comment') %> </span>
     </div>
     <div>
     <%= render 'comments/section' %>

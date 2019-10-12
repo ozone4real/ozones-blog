@@ -16,7 +16,7 @@
             <hr>
             <div class="mb-3">
               <h6><%= article.title%></h6>
-              <small><span class="text-primary">@<%= article.user.username %></span></small>
+              <small><span class="text-success">@<%= article.user.username %></span></small>
             </div>
           <% end %>
         <% end %>
@@ -35,19 +35,7 @@
       </div>
     <% end %>
     <% if !logged_in? %>
-      <div class="site-banner row">
-        <div class="banner col-5">
-          <div class="typing-img">
-            <%= image_tag 'pngguru.com-id-bbckh.png' %>
-          </div>
-        </div>
-        <div class="col-5 sign-up-notice">
-          <h2 class="notice-text mb-4">Why wait longer? Join in the conversations now!</h2>
-          <div class="sign-up-button">
-            <button class="signup-modal-trigger">Get started</button>
-          </div>
-        </div>
-      </div>
+      <%= render 'layouts/banner' %>
     <% end %>
       <hr>
       <h3>Featured Articles</h3>
