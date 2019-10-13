@@ -33,14 +33,14 @@
   <% end %>
   <li class="nav-item">
     <a class= "<%= profile[:for_current_user] ? 'nav-link' : 'nav-link active' %>" data-content="my-articles" href="javascript:void(0)">
-    <%= if profile[:for_current_user]; "My" ; end %> Articles(<%= profile[:user].articles.length %>)
+    <%= if profile[:for_current_user]; "My" ; end %> Articles (<%= profile[:user].articles.length %>)
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-content="followers" href="javascript:void(0)">Followers(<%= profile[:user].followers.length %>)</a>
+    <a class="nav-link" data-content="followers" href="javascript:void(0)">Followers (<%= profile[:user].followers.length %>)</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="javascript:void(0)" data-content="following" >Following(<%= profile[:user].following.length %>)</a>
+    <a class="nav-link" href="javascript:void(0)" data-content="following" >Following (<%= profile[:user].following.length %>)</a>
   </li>
 </ul>
 <div class="profile-tabs mt-4 mx-2">

@@ -96,9 +96,16 @@ $(document).on 'turbolinks:load', ->
     $(this).hide()
     $('.scroll-next-btn').show()
 
-  $(window).scroll ->
-    if window.pageYOffset >= $('.nav-header-cont').scrollTop()
-      $('.nav-header-cont').css({"position": "sticky", 'top': '0'})
-      # $('.container').css('padding-top', '70px')
-
+  
+  lastScrollTop = window.pageYOffset
+  scrollFunc = ()  -> 
+    st = window.pageYOffset
+    if window.pageYOffset
+      $('.nav-header-cont').css({"position": "sticky", 'top': '0', 'z-index': '1000'})
+    if st > lastScrollTop
+      $('.categories-cont').css({'visibility': 'hidden'})
+    else
+      $('.categories-cont').css({'visibility': 'visible'})
+    lastScrollTop = if st <= 0 then 0 else st
+  window.addEventListener('scroll', scrollFunc, false)
 

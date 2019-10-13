@@ -3,112 +3,126 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .form-container {
-  width: 90%;
-  margin: auto;
+	width: 90%;
+	margin: auto;
 
-  .form-control.ql-container {
-    height: 300px;
-    border-width: 0 !important;
-    font-size: 20px;
-  }
-  
+	.form-control.ql-container {
+		height: 300px;
+		border-width: 0 !important;
+		font-size: 20px;
+	}
 }
 
 .reactions-section {
-  font-size: 15px;
-  a {
-    text-decoration: unset;
-    color: unset;
-  }
-  
-  .reactions-section a:hover {
-    text-decoration: unset;
-  }
+	font-size: 15px;
+	a {
+		text-decoration: unset;
+		color: unset;
+	}
+
+	.reactions-section a:hover {
+		text-decoration: unset;
+	}
 }
 
 .create-article-page input[type='file'] {
-  display: none;
+	display: none;
 }
 
 #close-icon {
-  float: right;
-  display: none;
-  cursor: pointer;
+	float: right;
+	display: none;
+	cursor: pointer;
 }
 
 #close-icon:hover {
-  color: red;
+	color: red;
 }
 
 .create-article-page .img-preview {
-  height: 400px;
-  display: none;
+	height: 400px;
+	display: none;
 }
 
 #article_title {
-  width: 100%;
-  text-transform: capitalize;
-  border-width: 0 0 1px 0;
-  outline: none;
-  font-size: 25px;
-  padding: 10px 20px 10px 20px;
+	width: 100%;
+	text-transform: capitalize;
+	border-width: 0 0 1px 0;
+	outline: none;
+	font-size: 25px;
+	padding: 10px 20px 10px 20px;
 }
 
 .form-container .btn-primary {
-  background-color: black;
-  border-color: black;
-  outline: none;
+	background-color: black;
+	border-color: black;
+	outline: none;
 }
 
 .form-container .btn-primary:hover {
-  color: black;
-  background-color: white;
-  border-color: black;
+	color: black;
+	background-color: white;
+	border-color: black;
 }
 
 .form-container .btn-primary:active {
-  background-color: black !important;
-  border-color: black !important;
+	background-color: black !important;
+	border-color: black !important;
 }
 
 .article-page {
-  margin: 70px auto 70px auto;
-  .extra-info {
-    .follow-btn {
-      border-radius: 5px !important;
-      font-size: 12px;
+	margin: 70px auto 70px auto;
+	.extra-info {
+		.follow-btn {
+			border-radius: 5px !important;
+			font-size: 12px;
+		}
+	}
+	.article-title {
+		font-size: 50px;
+		font-weight: bold;
+		font-family: Poppins;
+		text-transform: capitalize;
+		font-family: Poppins;
+	}
+
+	a:hover {
+		text-decoration: unset;
+	}
+
+	.article-image-container {
+		height: 500px;
+		margin: 40px auto 80px auto;
+	}
+
+	.article-body-container {
+		width: 70%;
+		margin: auto;
+	}
+
+	.article-body {
+		font-size: 17px;
+		line-height: 32px;
+	}
+
+	.article-body::first-letter {
+		font-size: xx-large;
+		font-weight: 400;
+	}
+
+	.site-banner {
+		.h2,
+		h2 {
+			font-size: 1.5rem !important;
+		}
+
+		img {
+			width: 200px;
+			height: 200px;
     }
-  }
-  .article-title {
-    font-size: 50px;
-    font-weight: bold;
-    font-family: Poppins;
-    text-transform: capitalize;
-    font-family: Poppins;
-  }
-
-  a:hover {
-    text-decoration: unset;
-  }
-
-  .article-image-container {
-    height: 500px;
-    margin: 40px auto 80px auto;
-  }
-
-  .article-body-container {
-    width: 70%;
-    margin: auto;
-  }
-  
-  .article-body {
-    font-size: 17px;
-    line-height: 32px;
-  }
-
-  .article-body::first-letter {
-    font-size: xx-large;
-    font-weight: 400;
-  }
+    
+    button {
+      padding: 10px;
+    }
+	}
 }
-

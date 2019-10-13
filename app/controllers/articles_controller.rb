@@ -12,7 +12,10 @@ class ArticlesController < ApplicationController
     @article = Article.includes(likes: :user, comments: :user).find_by(slug: params[:slug])
     unless @article.user == current_user
       @article.increment!(:number_of_reads)
+      ArticleStat.create!(user_id: current_user ? current_user.id : request.remote_ip, article: @article)
     end
+  rescue => e
+    nil
   end
 
   def edit; end

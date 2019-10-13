@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   mount_uploader :image_url, ImageUploader
   belongs_to :user
+  has_many :article_stat, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories
