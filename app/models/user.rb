@@ -23,6 +23,10 @@ class User < ApplicationRecord
     following.delete(user)
   end
 
+  def articles_by_following
+    following.map(&:articles).flatten
+  end
+
   def is_following?(user)
     following.include?(user)
   end

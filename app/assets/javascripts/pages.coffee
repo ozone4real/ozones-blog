@@ -97,15 +97,48 @@ $(document).on 'turbolinks:load', ->
     $('.scroll-next-btn').show()
 
   
+  
+
+  
+
+  h = $('.categories-cont').height()
   lastScrollTop = window.pageYOffset
-  scrollFunc = ()  -> 
+  $('.popular-articles').css({top: $('.nav-header-cont').height() + 40 })
+
+  handleScroll = ()  ->
     st = window.pageYOffset
-    if window.pageYOffset
-      $('.nav-header-cont').css({"position": "sticky", 'top': '0', 'z-index': '1000'})
-    if st > lastScrollTop
-      $('.categories-cont').css({'visibility': 'hidden'})
+
+    coords2 = $('.header')[0].getBoundingClientRect()
+    $('.popular-articles').css({top: $('.nav-header-cont').height() + 40 })
+    if st > lastScrollTop 
+      $('.categories-cont').css({top: 0, position: 'absolute', zIndex: -1})
     else
-      $('.categories-cont').css({'visibility': 'visible'})
+      $('.categories-cont').css({top: coords2 && coords2.bottom, position: 'static', zIndex: 1000})
     lastScrollTop = if st <= 0 then 0 else st
-  window.addEventListener('scroll', scrollFunc, false)
+  window.addEventListener('scroll', handleScroll, false)
+
+  
+
+  if $('.popular-articles').length
+    options = {
+      root: null
+      rootMargin: "-#{$('.nav-header-cont').height()}px 0px 0px 0px"
+    }
+
+    handleIntersect1 = (entries, options) ->
+      if !entries[0].isIntersecting
+        $('.popular-articles').addClass('position-fixed')
+      else
+        $('.popular-articles').removeClass('position-fixed')
+
+    handleIntersect2 = (entries, options) ->
+      console.log entries[0]
+      if entries[0].isIntersecting
+        $('.popular-articles').removeClass('position-fixed')
+      else
+        $('.popular-articles').addClass('position-fixed')
+    
+    new IntersectionObserver(handleIntersect1, options).observe($('.intersect-elem')[0])
+    new IntersectionObserver(handleIntersect2).observe($('footer')[0])
+
 

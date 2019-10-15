@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   scope "articles" do
     get "/search" => "articles#search"
+    get "/by_following" => "articles#by_following", as: "articles_by_following"
     patch "/:id" => "articles#update"
   end
   

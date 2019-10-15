@@ -29,6 +29,18 @@ body {
 	min-height: 80vh;
 }
 
+hr {
+	margin: 0.5rem 0;
+}
+
+.position-fixed {
+	position: fixed
+}
+
+input:focus {
+	outline: none;
+}
+
 .text-success {
 	color: #11812b !important;
 }
@@ -37,9 +49,11 @@ body {
 	background: black;
 }
 
-a {
+a, a:hover {
+	text-decoration: unset;
 	color: unset;
 }
+
 
 .profile-img-sm,
 .profile-img-md {

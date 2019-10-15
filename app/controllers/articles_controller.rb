@@ -18,6 +18,8 @@ class ArticlesController < ApplicationController
     nil
   end
 
+  def by_following; end
+
   def edit; end
 
   def destroy

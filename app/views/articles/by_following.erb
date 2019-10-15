@@ -1,0 +1,6 @@
+<h4 class="mt-5">Articles By people you follow</h4>
+<div class="featured-articles my-4">
+    <% current_user.articles_by_following.each do |article| %>
+      <%= render 'layouts/article_card', article: article, truncValue: {article_body: 120, article_title: 40} %>
+    <% end %>
+  </div>

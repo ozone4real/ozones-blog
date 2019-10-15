@@ -1,0 +1,32 @@
+<div class="user-article-cards">
+  <div class="article-img" >
+    <%= link_to article_path(article.slug) do %>
+      <%= image_tag image_url(article) %>
+    </div>
+  <% end %>
+  <div class="article-content">
+    <%= link_to article_path(article.slug) do %>
+      <div class="user-article-title">
+        <h5 class="text-dark"><%= article.title %></h5>
+      </div>
+      <div class="user-article-body">
+        <%= sanitize article.article_body.gsub(/(<.+?>)|(<.+?\/>)/, '').truncate(200) %>
+      </div>
+    <% end %>
+    <div class="row text-secondary mt-3">
+      <div class="additional-details col-5">
+      <small>
+          By <span class="text-success"><%= "@#{article.user.username}"%></span>
+          In <span class="text-faded"><%= article.categories[0].name %> </span>
+        </small>
+      </div>
+      <div class="col-7 text-right" >
+      <small>
+        <span class="pl-1 pr-1"><%= Date.strptime(article.created_at.to_s).to_formatted_s(:short) %></span>. 
+        <span> <%= "#{article.time_to_read} read" %></span>
+        </small>
+        
+      </div>
+    </div>
+  </div>
+</div>

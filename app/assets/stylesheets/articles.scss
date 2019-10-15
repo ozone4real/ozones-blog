@@ -15,15 +15,7 @@
 
 .reactions-section {
 	font-size: 15px;
-	a {
-		text-decoration: unset;
-		color: unset;
-	}
-
-	.reactions-section a:hover {
-		text-decoration: unset;
-	}
-}
+} 
 
 .create-article-page input[type='file'] {
 	display: none;
@@ -86,10 +78,6 @@
 		font-family: Poppins;
 	}
 
-	a:hover {
-		text-decoration: unset;
-	}
-
 	.article-image-container {
 		height: 500px;
 		margin: 40px auto 80px auto;
@@ -111,8 +99,8 @@
 	}
 
 	.site-banner {
-		.h2,
-		h2 {
+		.h3,
+		h3 {
 			font-size: 1.5rem !important;
 		}
 

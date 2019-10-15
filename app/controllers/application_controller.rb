@@ -49,4 +49,21 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def history_categories
+    @history_categories ||= current_user.article_stats.order(created_at: :desc).includes(article: :categories).map {|a| a.article.categories}.flatten
+  end
+
+  def most_read_categories
+    freq_hash = history_categories.reduce(Hash.new(0)) {|h, v| h[v] += 1;  h }
+    history_categories.uniq.sort_by {|elem| -freq_hash[elem] }
+  end
+
+  def recommendations
+    recommended = [most_read_categories.first, history_categories.first].uniq.map(&:articles).flatten.uniq.shuffle
+  end
+
+  def sort_by_reactions(data)
+    data.sort_by {|obj| -(obj.likes.count + obj.comments.count) }
+  end
 end

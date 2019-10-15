@@ -79,32 +79,32 @@
 <div class="tab-item" id="my-articles">
   <% profile[:user].articles.each do |article| %>
     <div class="user-article-cards">
-    <div class="article-img" >
-    <%= link_to article_path(article.slug) do %>
-    <%= image_tag article.image_url.to_s %>
-    </div>
-    <% end %>
-    <div class="article-content">
-      <%= link_to article_path(article.slug) do %>
-        <div class="user-article-title">
-          <h5><%= article.title %></h5>
-        </div>
-        <div class="user-article-body">
-          <%= sanitize article.article_body.gsub(/(<.+?>)|(<.+?\/>)/, '').truncate(200) %>
+      <div class="article-img" >
+        <%= link_to article_path(article.slug) do %>
+          <%= image_tag image_url(article) %>
         </div>
       <% end %>
-      <div class="row text-secondary mt-3">
-        <div class="additional-details col-10">
-          <span><small><%= Date.strptime(article.created_at.to_s) %> </small></span>
-        </div>
-        <% if profile[:for_current_user] %>
-          <div class="user-article-buttons col-2">
-            <%= link_to '<i class="far fa-edit mr-2" title="edit"></i>'.html_safe , edit_article_path(article.slug) %>
-            <%= link_to '<i class="fa fa-trash" aria-hidden="true" title="delete"></i>'.html_safe, article_path(article.id), method: 'delete', data: {confirm: "Are you sure you want to delete this article?"} %>
+      <div class="article-content">
+        <%= link_to article_path(article.slug) do %>
+          <div class="user-article-title">
+            <h5 class="text-dark"><%= article.title %></h5>
+          </div>
+          <div class="user-article-body">
+            <%= sanitize article.article_body.gsub(/(<.+?>)|(<.+?\/>)/, '').truncate(200) %>
           </div>
         <% end %>
+        <div class="row text-secondary mt-3">
+          <div class="additional-details col-10">
+            <span><small><%= Date.strptime(article.created_at.to_s) %> </small></span>
+          </div>
+          <% if profile[:for_current_user] %>
+            <div class="user-article-buttons col-2">
+              <%= link_to '<i class="far fa-edit mr-2" title="edit"></i>'.html_safe , edit_article_path(article.slug) %>
+              <%= link_to '<i class="fa fa-trash" aria-hidden="true" title="delete"></i>'.html_safe, article_path(article.id), method: 'delete', data: {confirm: "Are you sure you want to delete this article?"} %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
     </div>
   <% end %>
 </div>
