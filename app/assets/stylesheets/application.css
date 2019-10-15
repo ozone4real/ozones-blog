@@ -19,8 +19,9 @@
 
 body {
 	background: #ffffff;
-  /* min-height: 100vh; */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	/* min-height: 100vh; */
+	font-family: Roboto, 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 15px;
 	margin: 0;
 	padding: 0;
 }
@@ -34,7 +35,7 @@ hr {
 }
 
 .position-fixed {
-	position: fixed
+	position: fixed;
 }
 
 input:focus {
@@ -49,11 +50,11 @@ input:focus {
 	background: black;
 }
 
-a, a:hover {
+a,
+a:hover {
 	text-decoration: unset;
 	color: unset;
 }
-
 
 .profile-img-sm,
 .profile-img-md {
@@ -80,4 +81,24 @@ li {
 
 .pagination {
 	justify-content: center;
+}
+
+@media (max-width: 768px) {
+	body {
+		font-family: 'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
+	}
+	.container {
+		padding-right: 20px !important;
+		padding-left: 20px !important;
+	}
+
+	h5,
+	h4,
+	h3 {
+		font-size: 1rem !important;
+	}
+}
+
+.fa-bars {
+	font-size: 20px;
 }

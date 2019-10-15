@@ -1,13 +1,22 @@
-<nav class="navbar navbar-default categories-cont">
-  <span class="btn-sm scroll-prev-btn"><<</span>
-      <div class="container-fluid categories-list">
-        <div class="nav navbar-nav align-items-center">
-          <%= link_to "Home", root_path, class: "px-3 #{url == '/' && 'active'}" %>
-          <% Category.all.each do |category| %>
-            <%= link_to category.name, category_path(category.id), class:"px-3 #{params[:id].to_i == category.id && 'active'}" %>
+
+<nav class="navbar navbar-default categories-cont nav-hidden">
+<div class="d-block d-md-none text-center">
+        <div class="search-container">
+          <%= form_tag("/articles/search", method: :get) do %>
+            <%= text_field_tag :query, params[:query], placeholder: "Search..", type: "search" %>
+            <button type="submit" class="d-none d-md-block"><i class="fa fa-search"></i></button>
           <% end %>
         </div>
       </div>
-      <span class="btn-sm scroll-next-btn">>></span>
+  <span class="btn-sm scroll-prev-btn"><</span>
+      <div class="container-fluid categories-list">
+        <div class="nav navbar-nav align-items-md-center">
+          <%= link_to "Home", root_path, class: "px-md-3 py-2 #{url == '/' && 'active'}" %>
+          <% Category.all.each do |category| %>
+            <%= link_to category.name, category_path(category.id), class:"px-md-3 py-2 #{params[:id].to_i == category.id && 'active'}" %>
+          <% end %>
+        </div>
+      </div>
+      <span class="btn-sm scroll-next-btn">></span>
     </nav>
     <!-- <%= if logged_in? and current_user.is_admin?; link_to('Create Category', new_category_path, class: "dropdown-item"); end %> -->

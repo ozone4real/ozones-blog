@@ -2,8 +2,8 @@ class PagesController < ApplicationController
   def home
     @articles = Article.order(created_at: :desc).includes(:likes)
     @user = User.new
-    @top_article = @articles.sort { |a, b| b.number_of_reads <=> a.number_of_reads }.first
-    @most_liked_articles = sort_by_reactions(@articles)
+    @top_article = sort_by_reactions(@articles.take(4)).first
+    @popular_articles = sort_by_reactions(@articles)
     @featured_articles = @articles
     if current_user && history_categories.present?
       @recommended = recommendations.take(5)

@@ -64,6 +64,6 @@ class ApplicationController < ActionController::Base
   end
 
   def sort_by_reactions(data)
-    data.sort_by {|obj| -(obj.likes.count + obj.comments.count) }
+    data.sort_by {|article| -(article.likes.count + article.comments.count + article.article_stats.count ) }
   end
 end

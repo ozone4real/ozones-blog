@@ -1,11 +1,12 @@
 <div class="nav-header-cont">
 <nav class="header">
   <div class="nav-container" >
-    <div class="row justify-content-start align-items-center">
-      <div class="col">
+    <div class="row justify-content-between align-items-center">
+    <div class="hamburger col-2 d-md-none"> <a href="javascript:void(0)"><i class="fas fa-bars"></i></a> </div>
+      <div class="col-6 col-md-5 text-center text-md-left">
         <%= link_to '<span class="site-title">Ozone\'s blog</span>'.html_safe, root_path %>
       </div>
-      <div class="col-5">
+      <div class="col-5 d-none d-md-block">
         <div class="search-container">
           <%= form_tag("/articles/search", method: :get) do %>
             <%= text_field_tag :query, params[:query], placeholder: "Search..", type: "search" %>
@@ -13,13 +14,13 @@
           <% end %>
         </div>
       </div>
-      <span class="nav-item dropdown col-2">
+      <div class="nav-item dropdown col-2">
         <% if logged_in? %>
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= gravatar_for current_user, '-sm' %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <div class="text-center text-primary"><%= current_user.username %></div>
+            <div class="text-center text-success"><%= "Hi #{current_user.username}" %></div>
             <%= link_to 'My Profile', profile_path, class: "dropdown-item" %>
             <%= link_to 'Create Article', new_article_path, class: "dropdown-item" %>
             <%= link_to 'Log out', logout_path, method: :delete, class: "dropdown-item" %>
@@ -27,7 +28,7 @@
         <% else %>
           <a href="javascript:void(0)" class="login-modal-trigger dropdown-toggle font-weight-bold"> Log In </a>
         <% end %>
-      </span>
+      </div>
     </div>
   </nav>
   <%= render('layouts/navbar') unless url.match(/profile|users/) %>

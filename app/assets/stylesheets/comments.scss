@@ -10,6 +10,10 @@
 	.comments {
 		padding: 10px;
 
+		@media (max-width: 768px) {
+			padding: 0;
+		}
+
 		form {
 			display: none;
 		}
@@ -26,7 +30,13 @@
     font-size: 15px;
     background: #f4f5f8;
     margin: 10px;
-    border-radius: 30px;
+		border-radius: 30px;
+		
+		@media (max-width: 768px) {
+			margin: 10px 0 10px 0;
+			font-size: 13px;
+		}
+
 
 		img {
 			height: 40px;

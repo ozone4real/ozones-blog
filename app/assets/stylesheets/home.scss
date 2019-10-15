@@ -67,6 +67,10 @@
 	background: white;
 	padding: 20px 0 20px 0;
 	border-radius: 10px;
+
+	@media (max-width: 576px) {
+		width: 90%;
+	}
 }
 
 .login-form div,
@@ -105,10 +109,18 @@
 
 .left-scrolling-sec {
 	width: 78%;
+	@media (max-width: 1140px) {
+		width: 94%;
+		margin: auto;
+	}
+
 	.recommended-articles {
 		margin-top: 60px;
 		.user-article-cards {
 			max-height: 170px;
+			@media (max-width: 768px) {
+				max-height: 130px;
+			}
 			margin-bottom: 10px;
 			* {
 				margin-right: 0;
@@ -125,11 +137,19 @@
 			width: 100%;
 			object-fit: cover;
 			height: 400px;
+
+			@media (max-width: 576px) {
+				height: 250px;
+			}
 		}
 
 		.article-card-title {
 			font-size: 25px;
 			font-weight: bolder;
+
+			@media (max-width: 576px) {
+				font-size: 20px;
+			}
 		}
 
 		.article-card-body::first-letter {
@@ -144,6 +164,14 @@
 	z-index: 100;
 	position: absolute;
 	right: 120px;
+
+	@media (max-width: 1140px) {
+		display: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
 	// transition: all 500ms
 
 	h6 {
@@ -161,10 +189,6 @@
 	justify-content: space-between;
 	flex-flow: row wrap;
 	align-items: baseline;
-}
-
-.popular-articles a:hover {
-	text-decoration: underline;
 }
 
 .articles-section .user-details {
@@ -199,12 +223,23 @@
 	width: 48%;
 }
 
+@media (max-width: 768px) {
+	.featured-articles .article-card,
+	.personalised-articles .article-card {
+		width: 100%;
+	}
+}
+
 .featured-articles .article-card,
 .personalised-articles .article-card {
 	margin: 8px;
 	margin-bottom: 40px;
 	box-shadow: 2px 2px 9px 2px rgba(0, 0, 0, 0.15);
 	padding: 10px;
+
+	@media (max-width: 768px) {
+		margin-bottom: 15px;
+	}
 }
 
 .featured-articles .article-card-title,

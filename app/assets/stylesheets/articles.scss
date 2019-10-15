@@ -6,10 +6,24 @@
 	width: 90%;
 	margin: auto;
 
+	@media (max-width: 768px) {
+		width: 100%;
+	}
+
 	.form-control.ql-container {
 		height: 300px;
 		border-width: 0 !important;
-		font-size: 20px;
+		font-size: 18px;
+
+		@media (max-width: 768px) {
+			font-size: 17px;
+		}
+	}
+
+	.ql-editor {
+		@media (max-width: 768px) {
+			padding-left: 0;
+		}
 	}
 }
 
@@ -45,22 +59,25 @@
 	padding: 10px 20px 10px 20px;
 }
 
-.form-container .btn-primary {
-	background-color: black;
-	border-color: black;
-	outline: none;
-}
+.form-container{
+	.btn-primary {
+		background-color: black;
+		border-color: black;
+		outline: none;
+	}
 
-.form-container .btn-primary:hover {
-	color: black;
-	background-color: white;
-	border-color: black;
-}
+	.btn-primary:hover {
+		color: black;
+		background-color: white;
+		border-color: black;
+	}
 
-.form-container .btn-primary:active {
-	background-color: black !important;
-	border-color: black !important;
-}
+	.btn-primary:active {
+		background-color: black !important;
+		border-color: black !important;
+	}
+} 
+
 
 .article-page {
 	margin: 70px auto 70px auto;
@@ -86,11 +103,28 @@
 	.article-body-container {
 		width: 70%;
 		margin: auto;
+
+		img {
+			width: 100%;
+		}
+
+		@media (max-width: 768px) {
+			width: 98%;
+		}
 	}
 
 	.article-body {
-		font-size: 17px;
+		font-size: 18px;
 		line-height: 32px;
+
+		@media (max-width: 768px) {
+			font-size: 17px;
+			h5,
+			h4,
+			h3 {
+				font-size: initial !important;
+			}
+		}
 	}
 
 	.article-body::first-letter {

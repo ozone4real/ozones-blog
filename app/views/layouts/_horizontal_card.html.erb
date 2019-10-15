@@ -7,20 +7,21 @@
   <div class="article-content">
     <%= link_to article_path(article.slug) do %>
       <div class="user-article-title">
-        <h5 class="text-dark"><%= article.title %></h5>
+        <h5 class="text-dark d-sm-none"><%= article.title.truncate(40) %></h5>
+        <h5 class="text-dark d-none d-sm-block"><%= article.title.truncate(80) %></h5>
       </div>
-      <div class="user-article-body">
+      <div class="user-article-body d-none d-md-block">
         <%= sanitize article.article_body.gsub(/(<.+?>)|(<.+?\/>)/, '').truncate(200) %>
       </div>
     <% end %>
-    <div class="row text-secondary mt-3">
-      <div class="additional-details col-5">
+    <div class="row text-secondary mt-1 mt-md-3">
+      <div class="additional-details col-md-5">
       <small>
           By <span class="text-success"><%= "@#{article.user.username}"%></span>
           In <span class="text-faded"><%= article.categories[0].name %> </span>
         </small>
       </div>
-      <div class="col-7 text-right" >
+      <div class="col-md-7 text-md-right" >
       <small>
         <span class="pl-1 pr-1"><%= Date.strptime(article.created_at.to_s).to_formatted_s(:short) %></span>. 
         <span> <%= "#{article.time_to_read} read" %></span>

@@ -19,10 +19,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   if Rails.env.production?
     include Cloudinary::CarrierWave
     def public_id
-      if model.is_a?(User)
+      case model
+      when User
         "ozones-blog/#{model.class.to_s.downcase}/#{mounted_as}/#{model.id}"
-      elsif model.is_a?(Article)
-        "ozones-blog/#{model.class.to_s.downcase}/#{mounted_as}/#{model.title.gsub(/\W/, '')}"
+      when Article
+        "ozones-blog/#{model.class.to_s.downcase}/#{mounted_as}/#{model.title.parameterize}"
       end
     end
   end

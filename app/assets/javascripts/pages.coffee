@@ -98,12 +98,16 @@ $(document).on 'turbolinks:load', ->
 
   
   
-
-  
+  $(document.body).click (e) ->
+    console.log(e.target)
+    if e.target.closest('.hamburger')
+      return $('.categories-cont').toggleClass('nav-hidden')
+    if !e.target.closest('.categories-cont')
+      $('.categories-cont').addClass('nav-hidden')
 
   h = $('.categories-cont').height()
   lastScrollTop = window.pageYOffset
-  $('.popular-articles').css({top: $('.nav-header-cont').height() + 40 })
+  $('.popular-articles').css({top: $('.nav-header-cont').height() + 50 })
 
   handleScroll = ()  ->
     st = window.pageYOffset

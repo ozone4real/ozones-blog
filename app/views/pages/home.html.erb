@@ -3,10 +3,10 @@
 <% if @articles.any? %>
   <div class="articles-section">
     <div class="selected-articles-sec row my-4">
-      <div class="left-scrolling-sec pr-5">
+      <div class="left-scrolling-sec pr-xl-5" >
         <span class="intersect-elem"> </span>
-        <div class="top-article">
-          <h2 class="mb-4">Feature Of The Day</h2>
+        <div class="top-article mb-5">
+          <h2 class="d-none d-md-block mb-3">Top Article</h2> <div class="d-md-none h4 mb-2">Top Article</div>
           <%= link_to article_path(@top_article.slug) do %>
             <div class='article-card-image-container mb-3' ><%= image_tag(@top_article.image_url.present? ? @top_article.image_url.to_s : 'Blog.jpg', class: "article-img") %></div>
             <div class='article-card-title mb-1 text-dark'> <%= @top_article.title.truncate(60) %> </div>
@@ -48,10 +48,10 @@
         <% if !logged_in? %>
           <%= render 'layouts/banner' %>
         <% end %>
-        <h5>Featured Articles</h5>
+        <h5 class= '<%= 'mt-5' unless @articles_by_people_you_follow || @recommended.present? %>' >Featured Articles</h5>
         <hr>
         <div class="featured-articles my-4">
-          <% @featured_articles.sample(6).each do |article| %>
+          <% @featured_articles.sample(9).each do |article| %>
             <%= render 'layouts/article_card', article: article, truncValue: {article_body: 100, article_title: 40} %>
           <% end %>
         </div>
@@ -59,7 +59,7 @@
       <div class="popular-articles pt-3 pb-5 pl-5 mr-0 pr-0">
         <h5 class="mb-3">Popular articles</h5>
         <hr>
-        <% @most_liked_articles.take(7).each do |article| %>
+        <% @popular_articles.take(7).each do |article| %>
           <%= link_to article_path(article.slug) do %>
             <div class="mb-3">
               <h6><%= article.title%></h6>

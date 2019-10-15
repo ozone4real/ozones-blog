@@ -7,17 +7,32 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    font-size: 12px;
+	}
 }
 
 .profile-page .profile-img {
   margin: auto !important;
   height: 210px;
   width: 210px;
+  @media (max-width: 768px) {
+    height: 150px;
+    width: 150px;
+	}
 }
 
 .profile-page .nav {
   justify-content: flex-start;
   margin: auto;
+
+  @media (max-width: 768px) {
+    justify-content: space-around;
+    a {
+      font-size: 13px;
+    }
+	}
 }
 
 .nav-tabs {
@@ -25,6 +40,11 @@
   border-width: 0px 0px 1px 0px;
   border-color: #d8d8d8;
   color: gray;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-wrap: nowrap;
+	}
 }
 
 #my-articles {
@@ -32,8 +52,12 @@
   overflow: auto;
 }
 
-.nav-tabs a {
+.nav-tabs .nav-link {
   color: unset;
+
+  @media (max-width: 768px) {
+    padding: 0.1rem;
+	}
 }
 
 .nav-link.active {
@@ -97,6 +121,7 @@ label {
   color: gray;
 }
 
+
 .user-article-cards {
   padding: 10px;
   border-radius: 10px;
@@ -109,6 +134,25 @@ label {
   overflow: hidden;
   flex-wrap: nowrap;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    max-height: 150px;
+  }
+
+  .user-article-title  h5{
+    font-weight: bolder;
+    font-size: 18px;
+  }
+
+  .user-article-body {
+    color: #585858;
+    font-size: 15px;
+
+    @media (max-width: 768px) {
+      font-size: 90%;
+    }
+  
+  }
 
   .article-img {
     width: 35%;
@@ -123,6 +167,24 @@ label {
   }
 }
 
+// .recommended-articles {
+//   margin-top: 60px;
+//   .user-article-cards {
+//     max-height: 170px;
+//     @media (max-width: 768px) {
+//       max-height: 130px;
+//     }
+//     margin-bottom: 10px;
+//     * {
+//       margin-right: 0;
+//     }
+
+//     box-shadow: 2px 2px 9px 2px rgba(0, 0, 0, 0.15);
+//     flex-direction: row-reverse;
+//     justify-content: space-between;
+//   }
+// }
+
 .user-article-cards:hover .user-article-buttons {
   display: unset;
 }
@@ -133,16 +195,6 @@ label {
 
 .user-article-cards a {
   color: black;
-}
-
-.user-article-cards .user-article-title  h5{
-  font-weight: bolder;
-  font-size: 18px;
-}
-
-.user-article-cards .user-article-body {
-  color: #585858;
-  font-size: 15px;
 }
 
 #profile-details textarea {
@@ -159,11 +211,24 @@ label {
 .profile-img-container {
   max-width: 30%;
   font-size: 14px;
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+    max-width: unset;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 15px;
+	}
+
 }
 
 .user-info-container {
   min-width: 70%;
   width: 75%;
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+	}
 }
 
 .profile-img-user-card {
@@ -177,6 +242,10 @@ label {
   a {
     color: rgba($color: #000000, $alpha: 0.7) !important;
   }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+	}
   
   
   .fa-edit:hover {
