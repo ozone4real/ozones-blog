@@ -85,7 +85,7 @@ li {
 
 @media (max-width: 768px) {
 	body {
-		font-family: 'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
+		font-family: Helvetica, 'Noto Sans', Tahoma, Geneva, Verdana, sans-serif;
 	}
 	.container {
 		padding-right: 20px !important;
