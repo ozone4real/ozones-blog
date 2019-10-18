@@ -3,66 +3,66 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .profile-container {
-  margin: 30px 0 30px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    font-size: 12px;
+	margin: 30px 0 30px 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	@media (max-width: 768px) {
+		flex-direction: column;
+		font-size: 12px;
 	}
 }
 
 .profile-page .profile-img {
-  margin: auto !important;
-  height: 210px;
-  width: 210px;
-  @media (max-width: 768px) {
-    height: 150px;
-    width: 150px;
+	margin: auto !important;
+	height: 210px;
+	width: 210px;
+	@media (max-width: 768px) {
+		height: 150px;
+		width: 150px;
 	}
 }
 
 .profile-page .nav {
-  justify-content: flex-start;
-  margin: auto;
+	justify-content: flex-start;
+	margin: auto;
 
-  @media (max-width: 768px) {
-    justify-content: space-around;
-    a {
-      font-size: 13px;
-    }
+	@media (max-width: 768px) {
+		justify-content: space-around;
+		a {
+			font-size: 13px;
+		}
 	}
 }
 
 .nav-tabs {
-  padding-top: 20px;
-  border-width: 0px 0px 1px 0px;
-  border-color: #d8d8d8;
-  color: gray;
+	padding-top: 20px;
+	border-width: 0px 0px 1px 0px;
+	border-color: #d8d8d8;
+	color: gray;
 
-  @media (max-width: 768px) {
-    display: flex;
-    flex-wrap: nowrap;
+	@media (max-width: 768px) {
+		display: flex;
+		flex-wrap: nowrap;
 	}
 }
 
 #my-articles {
-  max-height: 75vh;
-  overflow: auto;
+	max-height: 75vh;
+	overflow: auto;
 }
 
 .nav-tabs .nav-link {
-  color: unset;
+	color: unset;
 
-  @media (max-width: 768px) {
-    padding: 0.1rem;
+	@media (max-width: 768px) {
+		padding: 0.1rem;
 	}
 }
 
 .nav-link.active {
-  border-color: black !important;
-  border-width: 0px 0px 2px 0px;
+	border-color: black !important;
+	border-width: 0px 0px 2px 0px;
 }
 
 // .nav-tabs .active,
@@ -71,100 +71,98 @@
 // }
 
 .tab-item {
-  display: none;
+	display: none;
 }
 
 .user-info {
-  padding: 10px;
-  border: 1px solid #d8d8d8;
-  border-radius: 10px;
-  line-height: 32px;
-  margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #d8d8d8;
+	border-radius: 10px;
+	line-height: 32px;
+	margin-bottom: 10px;
 }
 
 .follow-btn {
-  font-weight: bold !important;
-  border-radius: 10px !important;
+	font-weight: bold !important;
+	border-radius: 10px !important;
 }
 
 label {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .profile-page input[type='file'] {
-  display: none;
+	display: none;
 }
 
 .update-buttons {
-  display: none;
+	display: none;
 }
 
 .edit-input {
-  display: none;
+	display: none;
 }
 
 .following {
-  background: black;
-  color: white !important;
+	background: black;
+	color: white !important;
 }
 
 .following.text-dark:hover,
 .following.text-dark:focus {
-  color: white !important;
+	color: white !important;
 }
 
 #profile-details input,
 #profile-details textarea {
-  border: none;
-  padding: 10px;
-  outline: none;
-  color: gray;
+	border: none;
+	padding: 10px;
+	outline: none;
+	color: gray;
 }
 
-
 .user-article-cards {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #d8d8d8;
-  margin-bottom: 15px;
-  box-shadow: 2px 5px 5px -2px #d8d8d8;
-  display: flex;
-  flex-direction: row;
-  // height: 300px;
-  overflow: hidden;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid #d8d8d8;
+	margin-bottom: 15px;
+	box-shadow: 2px 5px 5px -2px #d8d8d8;
+	display: flex;
+	flex-direction: row;
+	// height: 300px;
+	overflow: hidden;
+	flex-wrap: nowrap;
+	justify-content: space-between;
 
-  @media (max-width: 768px) {
-    max-height: 150px;
-  }
+	@media (max-width: 768px) {
+		max-height: 150px;
+	}
 
-  .user-article-title  h5{
-    font-weight: bolder;
-    font-size: 18px;
-  }
+	.user-article-title h5 {
+		font-weight: bolder;
+		font-size: 18px;
+	}
 
-  .user-article-body {
-    color: #585858;
-    font-size: 15px;
+	.user-article-body {
+		color: #585858;
+		font-size: 15px;
 
-    @media (max-width: 768px) {
-      font-size: 90%;
-    }
-  
-  }
+		@media (max-width: 768px) {
+			font-size: 90%;
+		}
+	}
 
-  .article-img {
-    width: 35%;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
+	.article-img {
+		width: 35%;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
 
-  .article-content {
-    width: 62%;
-  }
+	.article-content {
+		width: 62%;
+	}
 }
 
 // .recommended-articles {
@@ -186,98 +184,96 @@ label {
 // }
 
 .user-article-cards:hover .user-article-buttons {
-  display: unset;
+	display: unset;
 }
 
 ::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 .user-article-cards a {
-  color: black;
+	color: black;
 }
 
 #profile-details textarea {
-  width: 50%;
+	width: 50%;
 }
 
 #profile-for-current-user .profile-img-container {
-  width: 22%;
+	width: 22%;
 }
 #profile-for-current-user .user-info-container {
-  width: 78%;
+	width: 78%;
 }
 
 .profile-img-container {
-  max-width: 30%;
-  font-size: 14px;
+	max-width: 30%;
+	font-size: 14px;
 
-  @media (max-width: 768px) {
-    width: 100% !important;
-    max-width: unset;
-    text-align: center;
-    font-size: 12px;
-    margin-bottom: 15px;
+	@media (max-width: 768px) {
+		width: 100% !important;
+		max-width: unset;
+		text-align: center;
+		font-size: 12px;
+		margin-bottom: 15px;
 	}
-
 }
 
 .user-info-container {
-  min-width: 70%;
-  width: 75%;
+	min-width: 70%;
+	width: 75%;
 
-  @media (max-width: 768px) {
-    width: 100% !important;
+	@media (max-width: 768px) {
+		width: 100% !important;
 	}
 }
 
 .profile-img-user-card {
-  width: 70px;
-  height: 70px;
+	width: 70px;
+	height: 70px;
 }
 
-.user-article-buttons{
-  display: none;
-  font-size: 15px;
-  a {
-    color: rgba($color: #000000, $alpha: 0.7) !important;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 12px;
+.user-article-buttons {
+	display: none;
+	font-size: 15px;
+	a {
+		color: rgba($color: #000000, $alpha: 0.7) !important;
 	}
-  
-  
-  .fa-edit:hover {
-    color: black !important;
-    box-shadow: 1px 1px 3px #d8d8d8;
-  }
 
-  .fa-trash:hover {
-    color: red !important;
-  }
-} 
+	@media (max-width: 768px) {
+		font-size: 12px;
+	}
+
+	.fa-edit:hover {
+		color: black !important;
+		box-shadow: 1px 1px 3px #d8d8d8;
+	}
+
+	.fa-trash:hover {
+		color: red !important;
+	}
+}
 
 .user-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 20px 10px 20px;
-  border-radius: 15px;
-  border: 1px solid #d8d8d8;
-  margin-bottom: 15px;
-  box-shadow: 2px 5px 5px -2px #d8d8d8;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 10px 20px 10px 20px;
+	border-radius: 15px;
+	border: 1px solid #d8d8d8;
+	margin-bottom: 15px;
+	box-shadow: 2px 5px 5px -2px #d8d8d8;
+	align-items: center;
 }
 
 .user-card .user-detail {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .profile-details-cont {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 // .nav-tabs li {
 //   width: 32%;
