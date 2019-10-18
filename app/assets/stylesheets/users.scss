@@ -263,7 +263,11 @@ label {
 	border: 1px solid #d8d8d8;
 	margin-bottom: 15px;
 	box-shadow: 2px 5px 5px -2px #d8d8d8;
-	align-items: center;
+  align-items: center;
+  
+  @media (max-width: 768px) {
+	padding: 10px !important;
+	}
 }
 
 .user-card .user-detail {
