@@ -11,7 +11,7 @@
             <%= show_following_badge %>
           </span>
         </p>
-        <p class="my-1 text-secondary"><%= user.bio %></p>
+        <p class="mb-1 text-secondary"><%= user.bio&.truncate(40) %></p>
       </div>
     </div>
     <% unless user == current_user %>

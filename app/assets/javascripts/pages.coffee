@@ -101,9 +101,11 @@ $(document).on 'turbolinks:load', ->
   $(document.body).click (e) ->
     console.log(e.target)
     if e.target.closest('.hamburger')
+      $(this).toggleClass('prevent-scroll')
       return $('.categories-cont').toggleClass('nav-hidden')
     if !e.target.closest('.categories-cont')
       $('.categories-cont').addClass('nav-hidden')
+      $(this).removeClass('prevent-scroll')
 
   h = $('.categories-cont').height()
   lastScrollTop = window.pageYOffset

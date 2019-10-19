@@ -27,8 +27,14 @@
 	}
 }
 
-.reactions-section {
+.article-reactions-sec {
 	font-size: 15px;
+	padding: 7px;
+	border-top: 1px solid #dedede;
+	border-bottom: 1px solid #dedede;
+	.fa-heart:hover {
+		color: red;
+	}
 } 
 
 .create-article-page input[type='file'] {

@@ -31,12 +31,11 @@
     <div class="reactions-section article-reactions-sec">
       <% if logged_in? %>
         <%= link_to(article_likes_path(@article.slug), method: 'post', remote: true) do %>
-          <i class= '<%= "#{@article.liked_by(current_user) ? 'fas' : 'far'}" %> fa-heart' id="like-button" style="font-size: 25px; cursor: pointer" aria-hidden="true"></i>
+          <i class= '<%= "#{@article.liked_by(current_user) ? 'fas' : 'far'}" %> fa-heart' id="like-button" style="font-size: 22px; cursor: pointer" aria-hidden="true"></i>
         <% end %>
       <% end %>
-      <span class="like-count"><%= @article.likes.length %> </span> likes
-      &nbsp
-      <span id="comments-count ml-5"> <%= pluralize(@article.comments.count, 'comment') %> </span>
+      <span class="badge badge-dark mr-2 ml-1"><span class="like-count"><%= @article.likes.length %> </span> likes</span>
+      <span id="comments-count" class="badge badge-dark"> <%= pluralize(@article.comments.count, 'comment') %> </span>
     </div>
     <div>
     <%= render 'comments/section' %>

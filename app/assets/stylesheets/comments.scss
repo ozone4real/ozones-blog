@@ -34,14 +34,17 @@
 		
 		@media (max-width: 768px) {
 			margin: 10px 0 10px 0;
-			font-size: 13px;
 		}
 
 
 		img {
 			height: 40px;
       width: 40px;
-      border-radius: 50%;
+			border-radius: 50%;
+			@media (max-width: 768px) {
+				height: 30px;
+      	width: 30px;
+			}
 		}
 
 		.right-sec {
