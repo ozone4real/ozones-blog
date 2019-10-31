@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     end
     if current_user&.following.present?
       articles_by_mutual_followees = sort_by_reactions(find_mutual_followees.articles).first if find_mutual_followees
-      @articles_by_people_you_follow = (articles_by_mutual_followees ? (current_user.articles_by_following << articles_by_mutual_followees) : articles_by_people_you_follow).
+      @articles_by_people_you_follow = (articles_by_mutual_followees ? (current_user.articles_by_following << articles_by_mutual_followees) : current_user.articles_by_following).
                                        uniq.
                                        sort { |a, b| b.created_at <=> a.created_at }.take(4)
       @featured_articles = @articles.select { |article| !@articles_by_people_you_follow.include? article}
