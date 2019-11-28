@@ -9,7 +9,7 @@
       <div class="col-5 d-none d-md-block">
         <div class="search-container">
           <%= form_tag("/articles/search", method: :get) do %>
-            <%= text_field_tag :query, params[:query], placeholder: "Search..", type: "search" %>
+            <%= text_field_tag :query, params[:query], class: "search-input-field", placeholder: "Search..", type: "search" %>
             <button type="submit"><i class="fa fa-search"></i></button>
           <% end %>
         </div>

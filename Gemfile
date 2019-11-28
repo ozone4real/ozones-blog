@@ -12,6 +12,8 @@ gem 'bootstrap', '~> 4.3.1'
 
 gem 'jquery-rails'
 
+gem 'jquery-ui-rails'
+
 gem 'font-awesome-sass', '~> 5.8.1'
 
 gem 'sass-rails', '~> 5.0'
@@ -49,6 +51,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
 gem "async"
 gem 'searchkick'
+gem 'oj'
+gem 'typhoeus'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -29,5 +29,16 @@ $(document).on 'turbolinks:load', ->
       parent.find('form').hide()
 
   $('#selectpicker').multiselect()
+  $('.search-input-field').autocomplete({
+    select: (e, ui) ->
+      $('.search-input-field').val(ui.item.value)
+      $('.search-form').submit() 
+    source: (req, res) ->
+      $.get("/articles/autocomplete?query=#{req.term}", (data) ->
+        res(data)
+      )
+  })
+
+
     
 

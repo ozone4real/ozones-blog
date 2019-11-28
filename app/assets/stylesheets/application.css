@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui/autocomplete
  *= require quill.snow
  *= require toastr
  *= require bootstrap-multiselect
@@ -25,6 +26,24 @@ body {
 	margin: 0;
 	padding: 0;
 	
+}
+
+.ui-autocomplete {
+	z-index: 1000;
+	padding: 0;
+	width: 100px;
+}
+
+.ui-autocomplete .ui-menu-item-wrapper {
+	padding: 10px;
+}
+
+.ui-autocomplete .ui-menu-item-wrapper:hover,
+.ui-autocomplete .ui-menu-item:hover
+ {
+	border: none;
+	background: #f2f2f2;
+	color: black;
 }
 
 .prevent-scroll {

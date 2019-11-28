@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'users#logout_user'
 
   scope "articles" do
+    get "/autocomplete" => "articles#autocomplete" 
     get "/search" => "articles#search"
     get "/by_following" => "articles#by_following", as: "articles_by_following"
     patch "/:id" => "articles#update"

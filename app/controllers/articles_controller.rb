@@ -8,6 +8,20 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def autocomplete
+    search = Article.search params[:query], { 
+      suggest: [:full_text], 
+      fields: ["title^10", "article_body"],
+      limit: 10
+    }
+
+    
+    # binding.pry
+    
+  
+    render json: search.map(&:title)
+  end
+
   def show
     @article = Article.includes(likes: :user, comments: :user).find_by(slug: params[:slug])
     unless @article.user == current_user
@@ -29,9 +43,9 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    @search_results = Article.search params[:query], suggest: [:full_text]
+    @search_results = Article.search params[:query], suggest: [:full_text], fields: ["title^10", "article_body", {"username^10" => :exact}]
   end
-
+ 
   def create
     article_data = calculate_time_to_read(article_params)
     @article = Article.new(article_data)

@@ -9,14 +9,13 @@ class Article < ApplicationRecord
   validates :title, presence: true, length: { minimum: 3, maximum: 100 }
   validates :article_body, presence: true, length: { minimum: 10, maximum: 20_000 }
   after_create :generate_unique_slug
-  searchkick suggest: [:full_text]
+  searchkick suggest: [:title]
+  scope :search_import, -> { includes(:user) }
 
   private
 
   def search_data
-    { title: title, article_body: article_body }.merge(
-      username: user(&:username)
-    )
+    { title: title, number_of_reads: number_of_reads, article_body: article_body, username: user.username }
   end
 
   def generate_unique_slug

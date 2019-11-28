@@ -40,8 +40,6 @@ class User < ApplicationRecord
   end
 
   def reindex_articles
-    articles.each do |_account|
-      articles.reindex
-    end
+    articles.reindex
   end
 end

@@ -2,8 +2,8 @@
 <nav class="navbar navbar-default categories-cont nav-hidden">
 <div class="d-block d-md-none text-center">
         <div class="search-container">
-          <%= form_tag("/articles/search", method: :get) do %>
-            <%= text_field_tag :query, params[:query], placeholder: "Search..", type: "search" %>
+          <%= form_tag("/articles/search", method: :get, class: "search-form") do %>
+            <%= text_field_tag :query, params[:query], class: "search-input-field", placeholder: "Search..", type: "search" %>
             <button type="submit" class="d-none d-md-block"><i class="fa fa-search"></i></button>
           <% end %>
         </div>
