@@ -207,7 +207,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
-    puma (3.12.1)
+    puma (3.12.2)
     quilljs-rails (0.0.4)
     rack (2.0.7)
     rack-test (1.1.0)
@@ -390,7 +390,7 @@ DEPENDENCIES
   oj
   pg
   pry (~> 0.12.2)
-  puma (~> 3.11)
+  puma (~> 3.12)
   quilljs-rails
   rails (~> 5.2.3)
   rails-controller-testing
