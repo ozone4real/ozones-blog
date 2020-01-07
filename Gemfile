@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.3'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'bootstrap', '~> 4.3.1'
-
+gem 'whenever'
 gem 'jquery-rails'
 
 gem 'jquery-ui-rails'
@@ -53,6 +53,8 @@ gem "async"
 gem 'searchkick'
 gem 'oj'
 gem 'typhoeus'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -68,6 +70,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails'
   gem 'pry', '~> 0.12.2'
+  gem 'pubsueque', github: 'ozone4real/pubsueque'
 end
 
 group :development do
@@ -79,6 +82,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
 end
 
 group :test do
@@ -100,3 +108,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rubocop', '~> 0.50.0', require: false
 gem 'rubocop', '~> 0.50.0', require: false
+

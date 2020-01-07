@@ -26,4 +26,7 @@ test:
 
 production:
   <<: *default
-  database: db/production.postgres
+  database: d54idb2u789rqr
+  host: ec2-54-83-13-145.compute-1.amazonaws.com
+  username: sgvgneyseptguf
+  password: a169c843ac3b29896047fc5d8794db2ca9f1e15008f3ea0405f66e03fcf7ce72

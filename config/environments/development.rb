@@ -9,6 +9,8 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  config.active_job.queue_adapter = :pubsueque
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
