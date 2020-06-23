@@ -31,9 +31,7 @@
           <div class="recommended-articles mb-5">
             <h5 class="font-weight-bold">Recommended (Based on your reading history)</h5>
             <hr class="mb-3">
-            <% @recommended.each do |article| %>
-              <%= render 'layouts/horizontal_card', article: article %>
-            <% end %>
+              <%= render partial: 'layouts/horizontal_card', collection: @recommended, as: :article %>
           </div>
         <% end %>
         <% if logged_in?  && @articles_by_people_you_follow %>
@@ -51,9 +49,7 @@
         <h5 class= 'font-weight-bold <%= 'mt-5' unless @articles_by_people_you_follow || @recommended.present? %>' >Featured Articles</h5>
         <hr>
         <div class="featured-articles my-4">
-          <% @featured_articles.sample(9).each do |article| %>
-            <%= render 'layouts/article_card', article: article, truncValue: {article_body: 100, article_title: 40} %>
-          <% end %>
+            <%= render partial: 'layouts/article_card', as: :article, collection: @featured_articles.sample(9), locals: { truncValue: {article_body: 100, article_title: 40} } %>
         </div>
       </div>
       <div class="popular-articles pt-3 pb-5 pl-5 mr-0 pr-0">

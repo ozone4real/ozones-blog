@@ -10,7 +10,7 @@
 # set :output, "/path/to/my/cron_log.log"
 #
 every 2.minutes do
-  test_path = File.join(File.expand_path('../..'), 'shared/files')
+  test_path = File.expand_path("../../shared/files")
   job_type :rake, "cd :path && :environment_variable=:environment TEST_PATH=#{test_path} bundle exec rake :task --silent :output"
   rake 'testing:print_out'
 end
